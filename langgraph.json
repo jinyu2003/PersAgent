@@ -1,0 +1,7 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "persagent": "./studio_graph.py:graph"
+  },
+  "env": ".env"
+}

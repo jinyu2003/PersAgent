@@ -2,7 +2,7 @@
 
 实现自 `doc/工具实现.pdf`。本目录提供 Agent 推理使用的工具，每个工具一个 Python 文件，
 按临床功能分组。当前实现 **8 个**工具（机制/ADMET 6 个 + ADE谱 2 个）；文档中的
-"证据/个性化"组（`persade_evidence` / `faers_disproportionality` / `cpic_lookup` /
+"证据/个性化"组（`persade_evidence` / `persade_drug_profile` / `cpic_lookup` /
 `hla_peptide_score`）暂未实现。
 
 ## 目录结构

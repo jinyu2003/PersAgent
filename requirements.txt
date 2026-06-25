@@ -12,3 +12,9 @@
 #     conda create -n perstox python=3.10 -c conda-forge rdkit
 # A pip wheel is also published:
 rdkit>=2023.3
+pydantic>=2.7
+langgraph>=0.2.60
+langchain>=0.2.16
+langchain-openai>=0.1.25
+openai>=1.40
+typing-extensions>=4.10
