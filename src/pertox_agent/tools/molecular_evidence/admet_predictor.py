@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import argparse
 
-from pertox_agent.tools.shared.common import ADMETSAR, api_post, resolve_drug, smiles_to_inchikey, timed
+from pertox_agent.tools.shared.common import ADMETSAR, CACHE, api_post, resolve_drug, smiles_to_inchikey, timed
 
 # ADMETlab 3.0 单分子预测端点 (registration-free, CC-BY-NC-SA)。官方后端偶发不稳定
 # (对部分请求抛 KeyError:'BSEP' 等 5xx),工具据此优雅降级并在 _api_note 标注。
@@ -46,16 +46,49 @@ DESCRIPTOR_COLS = ("MW", "HBA", "HBD", "nRot", "TPSA", "SlogP", "nRing", "nAtom"
 DRUGLIKENESS_COLS = ("Lipinski rule", "Pfizer rule", "GSK rule")
 
 
+# admetSAR uses its own SMILES canonicalization, so matching is done on RDKit
+# InChIKey. Recomputing that for all ~105k rows on every lookup costs ~75s, so the
+# InChIKey of each row is precomputed once into a sidecar column cache and reused.
+_ADMETSAR_INDEX = None  # (header: list[str], {inchikey: raw row line}), built once per process
+_INCHIKEY_CACHE = CACHE / "admetsar3_inchikey.col"
+
+
+def _inchikey_column(data_lines):
+    """RDKit InChIKey for each admetSAR data row, as a list parallel to data_lines
+    ("" where RDKit can't parse). Cached on disk under data/cache and rebuilt only
+    when the source table changes (newer mtime) or the row count no longer matches."""
+    if _INCHIKEY_CACHE.exists() and _INCHIKEY_CACHE.stat().st_mtime >= ADMETSAR.stat().st_mtime:
+        keys = _INCHIKEY_CACHE.read_text(encoding="utf-8").split("\n")
+        if len(keys) == len(data_lines):
+            return keys
+    keys = [smiles_to_inchikey(line.split("\t", 1)[0]) or "" for line in data_lines]
+    _INCHIKEY_CACHE.parent.mkdir(parents=True, exist_ok=True)
+    _INCHIKEY_CACHE.write_text("\n".join(keys), encoding="utf-8")
+    return keys
+
+
+def _admetsar_index():
+    """Lazy in-process InChIKey -> raw row index, built once from the cached InChIKey
+    column so RDKit is never run per row per lookup."""
+    global _ADMETSAR_INDEX
+    if _ADMETSAR_INDEX is None:
+        with ADMETSAR.open(encoding="utf-8") as f:
+            header = f.readline().rstrip("\n").split("\t")
+            data_lines = f.readlines()
+        mapping = {}
+        for key, line in zip(_inchikey_column(data_lines), data_lines):
+            if key and key not in mapping:
+                mapping[key] = line
+        _ADMETSAR_INDEX = (header, mapping)
+    return _ADMETSAR_INDEX
+
+
 def _load_admetsar_row(inchikey: str):
-    """Find the admetSAR row whose RDKit InChIKey matches. Returns (header, row)
-    or (header, None) if the compound is out-of-domain (absent)."""
-    with ADMETSAR.open(encoding="utf-8") as f:
-        header = f.readline().rstrip("\n").split("\t")
-        for line in f:
-            cols = line.rstrip("\n").split("\t")
-            if smiles_to_inchikey(cols[0]) == inchikey:
-                return header, cols
-    return header, None
+    """Find the admetSAR row whose RDKit InChIKey matches, via the cached index.
+    Returns (header, row) or (header, None) if the compound is out-of-domain (absent)."""
+    header, mapping = _admetsar_index()
+    line = mapping.get(inchikey)
+    return header, (line.rstrip("\n").split("\t") if line is not None else None)
 
 
 def _classify(endpoint: str) -> dict:

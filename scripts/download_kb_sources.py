@@ -7,10 +7,11 @@ import sys
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(PROJECT_ROOT))
+SRC_ROOT = PROJECT_ROOT / "src"
+sys.path.insert(0, str(SRC_ROOT))
 
-from kb_builder.downloader import download_source
-from kb_builder.manifest import DEFAULT_MANIFEST, SourceFilter, iter_sources, load_sources, source_summary
+from pertox_agent.kb_builder.downloader import download_source
+from pertox_agent.kb_builder.manifest import DEFAULT_MANIFEST, SourceFilter, iter_sources, load_sources, source_summary
 
 
 def parse_args() -> argparse.Namespace:
@@ -105,3 +106,5 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+

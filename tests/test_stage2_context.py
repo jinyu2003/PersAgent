@@ -22,7 +22,7 @@ SRC_ROOT = PROJECT_ROOT / "src"
 sys.path.insert(0, str(SRC_ROOT))
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from examples.run_warfarin_demo import build_demo_state
+from examples.run_warfarin_demo import build_warfarin_state
 from pertox_agent.tools.real_world_evidence import persade_subgroup_risk
 
 _failures: list[str] = []
@@ -77,9 +77,9 @@ def test_cli_smoke() -> None:
 
 def test_endtoend_no_probability_change() -> None:
     print("== end-to-end: evidence exposed, Stage 2 probability unchanged ==")
-    from pertox_agent.graph import build_graph
+    from pertox_agent.workflow.graph import build_graph
 
-    final_state = build_graph().invoke(build_demo_state())
+    final_state = build_graph().invoke(build_warfarin_state())
     payload = final_state["final_output"]["json"]["payload"]
 
     check(payload.get("persade_contextual_evidence") is not None,

@@ -1,4 +1,4 @@
-"""Randomly sample admetSAR molecules and write cardiac attribution text.
+﻿"""Randomly sample admetSAR molecules and write cardiac attribution explanations.
 
 This batch script keeps the runtime path separate from ``main.py``. Each sampled
 molecule is passed to the agents as name + SMILES only; DrugBank IDs and
@@ -10,25 +10,24 @@ from __future__ import annotations
 import argparse
 import random
 import sys
-import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
-from typing import Any
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
+SRC_ROOT = PROJECT_ROOT / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
 
-import agents.brain_agent as brain_module
-from agents.brain_agent import BrainAgent
-from agents.knowledge_retrieval_agent import KnowledgeRetrievalAgent
-from config import get_model_config
-from models.schemas import DrugInfo, GeneralToxicityItem, PatientInfo
-from tool.common import ADMETSAR, resolve_drug
+import pertox_agent.agents.toxicity_orchestrator_agent as orchestrator_module
+from pertox_agent.agents.toxicity_orchestrator_agent import ToxicityOrchestratorAgent
+from pertox_agent.agents.knowledge_retrieval_agent import KnowledgeRetrievalAgent
+from pertox_agent.settings import get_model_config
+from pertox_agent.schemas import DrugInfo, GeneralToxicityItem, PatientInfo
+from pertox_agent.tools.shared.common import ADMETSAR, resolve_drug
 
 
 CARDIAC_SOC = "Cardiac disorders"
-DEFAULT_OUTPUT = PROJECT_ROOT / "outputs" / "20_drug_analysis.md"
+DEFAULT_OUTPUT = PROJECT_ROOT / "results" / "20_drug_analysis.md"
 
 
 def _read_admetsar_smiles(path: Path) -> list[str]:
@@ -94,81 +93,7 @@ def _cardiac_item(items: list[GeneralToxicityItem]) -> GeneralToxicityItem:
     raise ValueError(f"{CARDIAC_SOC} row was not produced.")
 
 
-def _narrative_retry_context(
-    *,
-    drug: DrugInfo,
-    cardiac: GeneralToxicityItem,
-) -> dict[str, Any]:
-    return {
-        "drug": {
-            "name": drug.name,
-            "smiles": drug.smiles,
-        },
-        "organ_system": "heart",
-        "soc": cardiac.soc,
-        "baseline_risk": {
-            "risk_level": cardiac.baseline_risk_level,
-            "probability": cardiac.baseline_probability,
-            "uncertainty": cardiac.uncertainty,
-        },
-        "probability_audit": {
-            "main_drivers": [
-                driver.get("driver")
-                for driver in cardiac.attribution.molecular_attribution
-                if isinstance(driver, dict) and driver.get("driver")
-            ],
-            "evidence_summary": [
-                ref.get("summary")
-                for driver in cardiac.attribution.molecular_attribution
-                if isinstance(driver, dict)
-                for ref in driver.get("evidence_refs", [])
-                if isinstance(ref, dict) and ref.get("summary")
-            ],
-        },
-        "method_availability": {
-            "structural_alert_matching": bool(cardiac.attribution.structural),
-            "smarts": any(bool(item.smarts) for item in cardiac.attribution.structural),
-            "gnn_attention": False,
-            "shap": False,
-        },
-    }
-
-
-def _narrative_retry_payload(cardiac: GeneralToxicityItem) -> dict[str, Any]:
-    return {
-        "attribution_explanation": cardiac.attribution.attribution_explanation,
-        "molecular_attribution": cardiac.attribution.molecular_attribution,
-        "attribution_limitations": cardiac.attribution.attribution_limitations,
-    }
-
-
-def _retry_attribution_narrative(
-    *,
-    brain: BrainAgent,
-    drug: DrugInfo,
-    cardiac: GeneralToxicityItem,
-    retries: int,
-    sleep_seconds: float,
-) -> str:
-    narrative = cardiac.attribution.attribution_narrative or ""
-    context = _narrative_retry_context(drug=drug, cardiac=cardiac)
-    attribution = _narrative_retry_payload(cardiac)
-    for attempt in range(max(0, retries)):
-        if narrative:
-            break
-        if attempt:
-            time.sleep(sleep_seconds)
-        narrative = brain._generate_attribution_narrative_with_llm(context, attribution) or ""  # type: ignore[attr-defined]
-    return narrative
-
-
-def run_one_drug(
-    index: int,
-    sample: dict[str, str],
-    *,
-    narrative_retries: int,
-    retry_sleep_seconds: float,
-) -> dict[str, str]:
+def run_one_drug(index: int, sample: dict[str, str]) -> dict[str, str]:
     patient = PatientInfo(patient_id=f"admetsar-20-analysis-{index:02d}", age=60, sex="unknown")
     drug = DrugInfo(
         name=sample["name"],
@@ -178,7 +103,7 @@ def run_one_drug(
     )
 
     retriever = KnowledgeRetrievalAgent()
-    brain = BrainAgent()
+    orchestrator = ToxicityOrchestratorAgent()
     evidence = retriever.retrieve(
         query={
             "purpose": "universal_toxicity",
@@ -188,23 +113,15 @@ def run_one_drug(
         patient_info=patient,
         drug_info=drug,
     )
-    universal = brain.build_universal_report(patient, drug, evidence)
+    universal = orchestrator.build_universal_report(patient, drug, evidence)
     cardiac = _cardiac_item(universal.general_toxicity)
     attribution = cardiac.attribution
-    narrative = _retry_attribution_narrative(
-        brain=brain,
-        drug=drug,
-        cardiac=cardiac,
-        retries=narrative_retries,
-        sleep_seconds=retry_sleep_seconds,
-    )
 
     return {
         "index": str(index),
         "name": sample["name"],
         "smiles": sample["smiles"],
         "attribution_explanation": attribution.attribution_explanation or "",
-        "attribution_narrative": narrative,
     }
 
 
@@ -214,15 +131,13 @@ def run_analysis(
     seed: int,
     max_attempts: int,
     workers: int,
-    narrative_retries: int,
-    retry_sleep_seconds: float,
 ) -> list[dict[str, str]]:
     samples = sample_named_admetsar_drugs(count=count, seed=seed, max_attempts=max_attempts)
     print(f"Sampled {len(samples)} named molecules from {ADMETSAR}.")
 
-    original_modeled_organs = set(brain_module.MODELED_ORGANS)
-    brain_module.MODELED_ORGANS.clear()
-    brain_module.MODELED_ORGANS.add("heart")
+    original_modeled_organs = set(orchestrator_module.MODELED_ORGANS)
+    orchestrator_module.MODELED_ORGANS.clear()
+    orchestrator_module.MODELED_ORGANS.add("heart")
 
     results: list[dict[str, str] | None] = [None] * len(samples)
     try:
@@ -232,8 +147,6 @@ def run_analysis(
                     run_one_drug,
                     index,
                     sample,
-                    narrative_retries=narrative_retries,
-                    retry_sleep_seconds=retry_sleep_seconds,
                 ): index - 1
                 for index, sample in enumerate(samples, start=1)
             }
@@ -250,8 +163,8 @@ def run_analysis(
                 results[result_index] = row
                 print(f"[{completed}/{len(samples)}] Completed {row['name']}")
     finally:
-        brain_module.MODELED_ORGANS.clear()
-        brain_module.MODELED_ORGANS.update(original_modeled_organs)
+        orchestrator_module.MODELED_ORGANS.clear()
+        orchestrator_module.MODELED_ORGANS.update(original_modeled_organs)
 
     return [row for row in results if row is not None]
 
@@ -276,10 +189,6 @@ def write_markdown(rows: list[dict[str, str]], output_path: Path, *, include_smi
                 "",
                 row["attribution_explanation"] or "No cardiac attribution explanation available.",
                 "",
-                "Attribution Narrative:",
-                "",
-                row["attribution_narrative"] or "No cardiac attribution narrative available.",
-                "",
             ]
         )
         lines.extend(
@@ -294,7 +203,7 @@ def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
             "Randomly sample named molecules from admetSAR3 and write cardiac "
-            "Attribution Explanation/Narrative to a Markdown report."
+            "Attribution Explanation to a Markdown report."
         )
     )
     parser.add_argument("--count", type=int, default=20, help="Number of drugs to analyze.")
@@ -310,18 +219,6 @@ def _parse_args() -> argparse.Namespace:
         type=int,
         default=max(1, config.attribution_parallelism),
         help="Number of drugs to process concurrently.",
-    )
-    parser.add_argument(
-        "--narrative-retries",
-        type=int,
-        default=3,
-        help="Extra narrative-only LLM attempts when the first BrainAgent pass returns no narrative.",
-    )
-    parser.add_argument(
-        "--retry-sleep-seconds",
-        type=float,
-        default=2.0,
-        help="Sleep between extra narrative-only retry attempts.",
     )
     parser.add_argument(
         "--output",
@@ -344,14 +241,10 @@ def main() -> None:
         seed=args.seed,
         max_attempts=args.max_attempts,
         workers=args.workers,
-        narrative_retries=args.narrative_retries,
-        retry_sleep_seconds=args.retry_sleep_seconds,
     )
     write_markdown(rows, args.output, include_smiles=args.include_smiles)
-    narrative_count = sum(1 for row in rows if row["attribution_narrative"])
     print("\n=== 20 Drug Analysis Complete ===")
     print(f"Rows: {len(rows)}")
-    print(f"Rows with Attribution Narrative: {narrative_count}")
     print(f"Markdown report: {args.output.resolve()}")
 
 

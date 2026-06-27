@@ -6,7 +6,7 @@ from typing import Any
 
 from langgraph.graph import END, StateGraph
 
-from pertox_agent.nodes import (
+from pertox_agent.workflow.nodes import (
     format_output,
     knowledge_retrieval_node,
     orchestrator_parse_input,
@@ -19,7 +19,7 @@ from pertox_agent.nodes import (
     route_after_knowledge,
     safety_verifier_node,
 )
-from pertox_agent.state import AgentState
+from pertox_agent.workflow.state import AgentState
 
 
 def build_graph() -> Any:

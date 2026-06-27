@@ -17,7 +17,7 @@
 
 ## 输入
 
-当前 demo 的输入定义在 `main.py` 的 `build_demo_state()` 中。
+当前 example 的输入定义在 `examples/run_warfarin_demo.py` 的 `build_warfarin_state()` 中。
 
 ### 药物输入
 

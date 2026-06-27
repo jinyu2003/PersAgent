@@ -12,18 +12,11 @@ from uuid import uuid4
 
 from pertox_agent.settings import get_model_config
 from pertox_agent.schemas import DrugInfo, EvidenceCitation, EvidenceItem, EvidencePackage, PatientInfo
-from pertox_agent.formatting import to_plain_dict
+from pertox_agent.reporting.formatter import to_plain_dict
 from pertox_agent.tools.runtime import retrieval_runtime as kb
 
 
 class KnowledgeRetrievalAgent:
-    system_prompt = (
-        "You are the Knowledge Retrieval Agent. Rewrite structured clinical "
-        "queries into deterministic tool calls, call external knowledge tools, "
-        "and return structured evidence packages with provenance. Do not make "
-        "patient-specific clinical decisions."
-    )
-
     def __init__(self) -> None:
         self.config = get_model_config()
         self._cache: Dict[str, Dict[str, Any]] = {}

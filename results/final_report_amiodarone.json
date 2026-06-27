@@ -1,0 +1,5374 @@
+{
+  "drug_entity": {
+    "primary_name": "Amiodarone",
+    "inchi_key": "IYIKLHRQXLHMJQ-UHFFFAOYSA-N",
+    "smiles": "CCCCC1=C(C(=O)C2=CC(I)=C(OCCN(CC)CC)C(I)=C2)C2=C(O1)C=CC=C2",
+    "drugbank_id": "DB01118",
+    "chembl_id": "CHEMBL633",
+    "pubchem_id": "2157",
+    "atc": "C01BD01",
+    "drug_type": "small molecule"
+  },
+  "patient_features": {
+    "patient_id": "demo-amiodarone-001",
+    "age": 72,
+    "age_group": "70-79YR",
+    "elderly": true,
+    "sex": "Male",
+    "indication_umls": [
+      {
+        "input": "I48 atrial fibrillation",
+        "name": "atrial fibrillation",
+        "umls_cui": "C0004238",
+        "mesh_id": "D001281",
+        "icd10": "I48",
+        "matched": true
+      },
+      {
+        "input": "I50 heart failure",
+        "name": "heart failure",
+        "umls_cui": "C0018801",
+        "mesh_id": "D006333",
+        "icd10": "I50",
+        "matched": true
+      }
+    ],
+    "comedication_ids": [
+      {
+        "input": "atorvastatin",
+        "name": "Atorvastatin",
+        "drugbank_id": "DB01076",
+        "inchi_key": "XUKUURHRXDUEBC-KAYWLYCHSA-N",
+        "matched": true
+      },
+      {
+        "input": "metoprolol",
+        "name": "Metoprolol",
+        "drugbank_id": "DB00264",
+        "inchi_key": "IUBSYMUCCVWXPE-UHFFFAOYSA-N",
+        "matched": true
+      }
+    ],
+    "pgx_phenotypes": [],
+    "organ_function_classes": {
+      "renal": {
+        "klass": "mild",
+        "basis": "eGFR 62 mL/min (KDIGO)"
+      },
+      "hepatic": {
+        "klass": "mild",
+        "basis": "Child-Pugh A"
+      },
+      "cardiac": {
+        "klass": "mildly_reduced",
+        "basis": "LVEF 42%"
+      }
+    },
+    "exposure_context": {
+      "route": "oral",
+      "form": null,
+      "dose": "200 mg/day",
+      "frequency": "daily"
+    },
+    "unresolved": []
+  },
+  "structure_profile": {
+    "descriptors": {
+      "MW": "645.319",
+      "HBA": "4",
+      "HBD": "0",
+      "nRot": "11",
+      "TPSA": "42.68",
+      "SlogP": "6.9362",
+      "nRing": "3",
+      "nAtom": "31",
+      "nHet": "6",
+      "QED": "0.167647246"
+    },
+    "drug_likeness": {
+      "Lipinski rule": "Not accept",
+      "Pfizer rule": "Not accept",
+      "GSK rule": "Not accept"
+    },
+    "structural_alerts": []
+  },
+  "admet_profile": [
+    {
+      "endpoint": "label_DILI_t",
+      "value": "1",
+      "endpoint_type": "numeric",
+      "mechanism_group": "hepatotoxicity",
+      "soc": "Hepatobiliary disorders",
+      "evidence_role": "model_feature"
+    },
+    {
+      "endpoint": "label_hERG_1_10",
+      "value": "1",
+      "endpoint_type": "numeric",
+      "mechanism_group": "hERG/QT",
+      "soc": "Cardiac disorders",
+      "evidence_role": "model_feature"
+    },
+    {
+      "endpoint": "label_hERG_1",
+      "value": "1",
+      "endpoint_type": "numeric",
+      "mechanism_group": "hERG/QT",
+      "soc": "Cardiac disorders",
+      "evidence_role": "model_feature"
+    },
+    {
+      "endpoint": "label_hERG_10",
+      "value": "1",
+      "endpoint_type": "numeric",
+      "mechanism_group": "hERG/QT",
+      "soc": "Cardiac disorders",
+      "evidence_role": "model_feature"
+    },
+    {
+      "endpoint": "label_hERG_10_30",
+      "value": "1",
+      "endpoint_type": "numeric",
+      "mechanism_group": "hERG/QT",
+      "soc": "Cardiac disorders",
+      "evidence_role": "model_feature"
+    },
+    {
+      "endpoint": "label_hERG_30",
+      "value": "1",
+      "endpoint_type": "numeric",
+      "mechanism_group": "hERG/QT",
+      "soc": "Cardiac disorders",
+      "evidence_role": "model_feature"
+    },
+    {
+      "endpoint": "label_Mito_t",
+      "value": "1",
+      "endpoint_type": "numeric",
+      "mechanism_group": "mitochondrial",
+      "soc": "Hepatobiliary disorders",
+      "evidence_role": "model_feature"
+    }
+  ],
+  "known_ade_profile": [
+    {
+      "ade_id": "C1997537",
+      "ade_name": "Electrocardiogram T Wave Alternans",
+      "organ": "unknown",
+      "ror": "295.1048954641188",
+      "ror_lower_ci": "61.2966252699651",
+      "prr": "295.0520274261062",
+      "case_number": "2.0",
+      "priority": "Medium",
+      "severity_grade": "Severe",
+      "pubmed": "",
+      "soc": "Cardiac disorders",
+      "organ_system": "heart",
+      "source": "PersADE/FAERS",
+      "evidence_level": "signal"
+    },
+    {
+      "ade_id": "C0039235",
+      "ade_name": "His Bundle (Junctional Ectopic) Tachycardia",
+      "organ": "Cardiovascular",
+      "ror": "217.48458720979755",
+      "ror_lower_ci": "73.9754473374265",
+      "prr": "217.40675705081503",
+      "case_number": "4.0",
+      "priority": "Medium",
+      "severity_grade": "Severe",
+      "pubmed": "11229410|14732753",
+      "soc": "Cardiac disorders",
+      "organ_system": "heart",
+      "source": "PersADE/FAERS",
+      "evidence_level": "signal"
+    },
+    {
+      "ade_id": "C1960445",
+      "ade_name": "Tachycardia Induced Cardiomyopathy",
+      "organ": "unknown",
+      "ror": "169.120338220743",
+      "ror_lower_ci": "83.56306172992794",
+      "prr": "168.98434298040627",
+      "case_number": "9.0",
+      "priority": "High",
+      "severity_grade": "Severe",
+      "pubmed": "",
+      "soc": "Cardiac disorders",
+      "organ_system": "heart",
+      "source": "PersADE/FAERS",
+      "evidence_level": "signal"
+    },
+    {
+      "ade_id": "C1112309",
+      "ade_name": "Electrocardiogram P Wave Biphasic",
+      "organ": "unknown",
+      "ror": "147.5391845906902",
+      "ror_lower_ci": "18.15022910398926",
+      "prr": "147.5260137130531",
+      "case_number": "1.0",
+      "priority": "Medium",
+      "severity_grade": "Mild",
+      "pubmed": "",
+      "soc": "Cardiac disorders",
+      "organ_system": "heart",
+      "source": "PersADE/FAERS",
+      "evidence_level": "signal"
+    },
+    {
+      "ade_id": "C1963794",
+      "ade_name": "Electrocardiogram Rr Interval Prolonged",
+      "organ": "unknown",
+      "ror": "133.2968658456648",
+      "ror_lower_ci": "47.0450007074158",
+      "prr": "133.24930270856407",
+      "case_number": "4.0",
+      "priority": "Medium",
+      "severity_grade": "Moderate",
+      "pubmed": "",
+      "soc": "Cardiac disorders",
+      "organ_system": "heart",
+      "source": "PersADE/FAERS",
+      "evidence_level": "signal"
+    },
+    {
+      "ade_id": "C1963849",
+      "ade_name": "Arrhythmic Storm",
+      "organ": "unknown",
+      "ror": "123.9881762589928",
+      "ror_lower_ci": "53.1525069304649",
+      "prr": "123.9218515189646",
+      "case_number": "6.0",
+      "priority": "Medium",
+      "severity_grade": "Severe",
+      "pubmed": "",
+      "soc": "Cardiac disorders",
+      "organ_system": "heart",
+      "source": "PersADE/FAERS",
+      "evidence_level": "signal"
+    },
+    {
+      "ade_id": "C0347632",
+      "ade_name": "Contusion Of Liver",
+      "organ": "unknown",
+      "ror": "93.8885393258427",
+      "ror_lower_ci": "12.120165955547613",
+      "prr": "93.88019054467011",
+      "case_number": "1.0",
+      "priority": "Medium",
+      "severity_grade": "Severe",
+      "pubmed": "",
+      "soc": "Hepatobiliary disorders",
+      "organ_system": "liver",
+      "source": "PersADE/FAERS",
+      "evidence_level": "signal"
+    },
+    {
+      "ade_id": "C1096355",
+      "ade_name": "Electrocardiogram U-Wave Abnormality",
+      "organ": "unknown",
+      "ror": "90.62642669077152",
+      "ror_lower_ci": "36.32046848545118",
+      "prr": "90.58614877117294",
+      "case_number": "5.0",
+      "priority": "Medium",
+      "severity_grade": "Severe",
+      "pubmed": "",
+      "soc": "Cardiac disorders",
+      "organ_system": "heart",
+      "source": "PersADE/FAERS",
+      "evidence_level": "signal"
+    },
+    {
+      "ade_id": "C0858522",
+      "ade_name": "Cardiothoracic Ratio Increased",
+      "organ": "unknown",
+      "ror": "87.55432918939432",
+      "ror_lower_ci": "35.13315441007366",
+      "prr": "87.51543186367554",
+      "case_number": "5.0",
+      "priority": "Medium",
+      "severity_grade": "Moderate",
+      "pubmed": "",
+      "soc": "Cardiac disorders",
+      "organ_system": "heart",
+      "source": "PersADE/FAERS",
+      "evidence_level": "signal"
+    },
+    {
+      "ade_id": "C1262485",
+      "ade_name": "Decreased Voltage, Electrocardiographic",
+      "organ": "unknown",
+      "ror": "86.09508287624014",
+      "ror_lower_ci": "34.5681408000477",
+      "prr": "86.0568413326143",
+      "case_number": "5.0",
+      "priority": "Medium",
+      "severity_grade": "Severe",
+      "pubmed": "",
+      "soc": "Cardiac disorders",
+      "organ_system": "heart",
+      "source": "PersADE/FAERS",
+      "evidence_level": "signal"
+    },
+    {
+      "ade_id": "C1535964",
+      "ade_name": "Cholestatic Pruritus",
+      "organ": "unknown",
+      "ror": "73.76954735152488",
+      "ror_lower_ci": "9.699439311861475",
+      "prr": "73.76300685652654",
+      "case_number": "1.0",
+      "priority": "Medium",
+      "severity_grade": "Moderate",
+      "pubmed": "",
+      "soc": "Hepatobiliary disorders",
+      "organ_system": "liver",
+      "source": "PersADE/FAERS",
+      "evidence_level": "signal"
+    },
+    {
+      "ade_id": "C4285759",
+      "ade_name": "Computerised Tomogram Liver Abnormal",
+      "organ": "unknown",
+      "ror": "73.76954735152488",
+      "ror_lower_ci": "9.699439311861475",
+      "prr": "73.76300685652654",
+      "case_number": "1.0",
+      "priority": "Medium",
+      "severity_grade": "Severe",
+      "pubmed": "",
+      "soc": "Hepatobiliary disorders",
+      "organ_system": "liver",
+      "source": "PersADE/FAERS",
+      "evidence_level": "signal"
+    },
+    {
+      "ade_id": "C1963785",
+      "ade_name": "Accessory Cardiac Pathway",
+      "organ": "unknown",
+      "ror": "68.85157153558052",
+      "ror_lower_ci": "9.093759248081174",
+      "prr": "68.84547306609143",
+      "case_number": "1.0",
+      "priority": "Medium",
+      "severity_grade": "Moderate",
+      "pubmed": "",
+      "soc": "Cardiac disorders",
+      "organ_system": "heart",
+      "source": "PersADE/FAERS",
+      "evidence_level": "signal"
+    },
+    {
+      "ade_id": "C1410098",
+      "ade_name": "Cardiac Arrest Neonatal",
+      "organ": "unknown",
+      "ror": "67.96970761811461",
+      "ror_lower_ci": "27.49373584582608",
+      "prr": "67.93961157837971",
+      "case_number": "5.0",
+      "priority": "Medium",
+      "severity_grade": "Critical",
+      "pubmed": "",
+      "soc": "Cardiac disorders",
+      "organ_system": "heart",
+      "source": "PersADE/FAERS",
+      "evidence_level": "signal"
+    }
+  ],
+  "mechanism_chains": [
+    {
+      "chain_id": "amiodarone_liver_ERN1",
+      "organ_system": "liver",
+      "organ_systems": [
+        "liver"
+      ],
+      "soc": "Hepatobiliary disorders",
+      "ade_id": "C0860207",
+      "evidence_type": "direct_DTA",
+      "pubmed": [],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "O75460",
+          "gene": "ERN1",
+          "protein": "Serine/threonine-protein kinase/endoribonuclease IRE1 (Endoplasmic reticulum-to-nucleus signaling 1) (Inositol-requiring protein 1) (hIRE1p) (Ire1-alpha) (IRE1a) [Includes: Serine/threonine-protein kinase (EC 2.7.11.1); Endoribonuclease (EC 3.1.26.-)]"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa05417",
+          "name": "KEGG:hsa05417"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C0860207",
+          "name": "Drug Induced Liver Injury"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "ERN1",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "ERN1"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa05417",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa05417"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Drug Induced Liver Injury",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Hepatobiliary disorders.",
+          "organ_system": "liver",
+          "soc": "Hepatobiliary disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C0860207"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> ERN1 -> KEGG:hsa05417 -> Drug Induced Liver Injury",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "local DTA row"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C0860207",
+          "name": "Drug Induced Liver Injury",
+          "organ_bucket": "Digestive/Hepatobiliary",
+          "severity": "Moderate"
+        },
+        "uniprot_id": "O75460",
+        "gene": "ERN1",
+        "protein": "Serine/threonine-protein kinase/endoribonuclease IRE1 (Endoplasmic reticulum-to-nucleus signaling 1) (Inositol-requiring protein 1) (hIRE1p) (Ire1-alpha) (IRE1a) [Includes: Serine/threonine-protein kinase (EC 2.7.11.1); Endoribonuclease (EC 3.1.26.-)]",
+        "pathways_sample": [
+          "KEGG:hsa05417",
+          "KEGG:hsa04210",
+          "KEGG:hsa05022",
+          "KEGG:hsa05010",
+          "KEGG:hsa04140"
+        ],
+        "pubmed": ""
+      }
+    },
+    {
+      "chain_id": "amiodarone_liver_ERN1",
+      "organ_system": "liver",
+      "organ_systems": [
+        "liver"
+      ],
+      "soc": "Hepatobiliary disorders",
+      "ade_id": "C1262760",
+      "evidence_type": "direct_DTA",
+      "pubmed": [],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "O75460",
+          "gene": "ERN1",
+          "protein": "Serine/threonine-protein kinase/endoribonuclease IRE1 (Endoplasmic reticulum-to-nucleus signaling 1) (Inositol-requiring protein 1) (hIRE1p) (Ire1-alpha) (IRE1a) [Includes: Serine/threonine-protein kinase (EC 2.7.11.1); Endoribonuclease (EC 3.1.26.-)]"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa05417",
+          "name": "KEGG:hsa05417"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C1262760",
+          "name": "Drug Induced Hepatitis"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "ERN1",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "ERN1"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa05417",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa05417"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Drug Induced Hepatitis",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Hepatobiliary disorders.",
+          "organ_system": "liver",
+          "soc": "Hepatobiliary disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C1262760"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> ERN1 -> KEGG:hsa05417 -> Drug Induced Hepatitis",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "local DTA row"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C1262760",
+          "name": "Drug Induced Hepatitis",
+          "organ_bucket": "Digestive/Hepatobiliary",
+          "severity": ""
+        },
+        "uniprot_id": "O75460",
+        "gene": "ERN1",
+        "protein": "Serine/threonine-protein kinase/endoribonuclease IRE1 (Endoplasmic reticulum-to-nucleus signaling 1) (Inositol-requiring protein 1) (hIRE1p) (Ire1-alpha) (IRE1a) [Includes: Serine/threonine-protein kinase (EC 2.7.11.1); Endoribonuclease (EC 3.1.26.-)]",
+        "pathways_sample": [
+          "KEGG:hsa05417",
+          "KEGG:hsa04210",
+          "KEGG:hsa05022",
+          "KEGG:hsa05010",
+          "KEGG:hsa04140"
+        ],
+        "pubmed": ""
+      }
+    },
+    {
+      "chain_id": "amiodarone_liver_ERN1",
+      "organ_system": "liver",
+      "organ_systems": [
+        "liver"
+      ],
+      "soc": "Hepatobiliary disorders",
+      "ade_id": "C4277682",
+      "evidence_type": "direct_DTA",
+      "pubmed": [],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "O75460",
+          "gene": "ERN1",
+          "protein": "Serine/threonine-protein kinase/endoribonuclease IRE1 (Endoplasmic reticulum-to-nucleus signaling 1) (Inositol-requiring protein 1) (hIRE1p) (Ire1-alpha) (IRE1a) [Includes: Serine/threonine-protein kinase (EC 2.7.11.1); Endoribonuclease (EC 3.1.26.-)]"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa05417",
+          "name": "KEGG:hsa05417"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C4277682",
+          "name": "Chemical And Drug Induced Liver Injury"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "ERN1",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "ERN1"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa05417",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa05417"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Chemical And Drug Induced Liver Injury",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Hepatobiliary disorders.",
+          "organ_system": "liver",
+          "soc": "Hepatobiliary disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C4277682"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> ERN1 -> KEGG:hsa05417 -> Chemical And Drug Induced Liver Injury",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "local DTA row"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C4277682",
+          "name": "Chemical And Drug Induced Liver Injury",
+          "organ_bucket": "Digestive/Hepatobiliary",
+          "severity": ""
+        },
+        "uniprot_id": "O75460",
+        "gene": "ERN1",
+        "protein": "Serine/threonine-protein kinase/endoribonuclease IRE1 (Endoplasmic reticulum-to-nucleus signaling 1) (Inositol-requiring protein 1) (hIRE1p) (Ire1-alpha) (IRE1a) [Includes: Serine/threonine-protein kinase (EC 2.7.11.1); Endoribonuclease (EC 3.1.26.-)]",
+        "pathways_sample": [
+          "KEGG:hsa05417",
+          "KEGG:hsa04210",
+          "KEGG:hsa05022",
+          "KEGG:hsa05010",
+          "KEGG:hsa04140"
+        ],
+        "pubmed": ""
+      }
+    },
+    {
+      "chain_id": "amiodarone_heart_SLC22A5",
+      "organ_system": "heart",
+      "organ_systems": [
+        "heart"
+      ],
+      "soc": "Cardiac disorders",
+      "ade_id": "C0007193",
+      "evidence_type": "direct_DTA",
+      "pubmed": [
+        "21641380"
+      ],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "O76082",
+          "gene": "SLC22A5",
+          "protein": "Organic cation/carnitine transporter 2 (High-affinity sodium-dependent carnitine cotransporter) (Solute carrier family 22 member 5)"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa05231",
+          "name": "KEGG:hsa05231"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C0007193",
+          "name": "Cardiomyopathy Dilated"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "SLC22A5",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "21641380"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa05231",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa05231"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Cardiomyopathy Dilated",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Cardiac disorders.",
+          "organ_system": "heart",
+          "soc": "Cardiac disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C0007193"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> SLC22A5 -> KEGG:hsa05231 -> Cardiomyopathy Dilated",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "21641380"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C0007193",
+          "name": "Cardiomyopathy Dilated",
+          "organ_bucket": "Cardiovascular",
+          "severity": "Severe"
+        },
+        "uniprot_id": "O76082",
+        "gene": "SLC22A5",
+        "protein": "Organic cation/carnitine transporter 2 (High-affinity sodium-dependent carnitine cotransporter) (Solute carrier family 22 member 5)",
+        "pathways_sample": [
+          "KEGG:hsa05231",
+          "MSigDB_Hallmark:HALLMARK_ESTROGEN_RESPONSE_LATE",
+          "MSigDB_Hallmark:HALLMARK_FATTY_ACID_METABOLISM",
+          "MSigDB_Hallmark:HALLMARK_ESTROGEN_RESPONSE_EARLY"
+        ],
+        "pubmed": "21641380"
+      }
+    },
+    {
+      "chain_id": "amiodarone_heart_SLC22A5",
+      "organ_system": "heart",
+      "organ_systems": [
+        "heart"
+      ],
+      "soc": "Cardiac disorders",
+      "ade_id": "C0027059",
+      "evidence_type": "direct_DTA",
+      "pubmed": [
+        "21641380"
+      ],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "O76082",
+          "gene": "SLC22A5",
+          "protein": "Organic cation/carnitine transporter 2 (High-affinity sodium-dependent carnitine cotransporter) (Solute carrier family 22 member 5)"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa05231",
+          "name": "KEGG:hsa05231"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C0027059",
+          "name": "Inflammation Of Heart Muscle"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "SLC22A5",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "21641380"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa05231",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa05231"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Inflammation Of Heart Muscle",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Cardiac disorders.",
+          "organ_system": "heart",
+          "soc": "Cardiac disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C0027059"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> SLC22A5 -> KEGG:hsa05231 -> Inflammation Of Heart Muscle",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "21641380"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C0027059",
+          "name": "Inflammation Of Heart Muscle",
+          "organ_bucket": "Cardiovascular",
+          "severity": "Severe"
+        },
+        "uniprot_id": "O76082",
+        "gene": "SLC22A5",
+        "protein": "Organic cation/carnitine transporter 2 (High-affinity sodium-dependent carnitine cotransporter) (Solute carrier family 22 member 5)",
+        "pathways_sample": [
+          "KEGG:hsa05231",
+          "MSigDB_Hallmark:HALLMARK_ESTROGEN_RESPONSE_LATE",
+          "MSigDB_Hallmark:HALLMARK_FATTY_ACID_METABOLISM",
+          "MSigDB_Hallmark:HALLMARK_ESTROGEN_RESPONSE_EARLY"
+        ],
+        "pubmed": "21641380"
+      }
+    },
+    {
+      "chain_id": "amiodarone_liver_ABCB11",
+      "organ_system": "liver",
+      "organ_systems": [
+        "liver"
+      ],
+      "soc": "Hepatobiliary disorders",
+      "ade_id": "C0008370",
+      "evidence_type": "direct_DTA",
+      "pubmed": [],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "O95342",
+          "gene": "ABCB11",
+          "protein": "Bile salt export pump (EC 7.6.2.-) (ATP-binding cassette sub-family B member 11)"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa01522",
+          "name": "KEGG:hsa01522"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C0008370",
+          "name": "Bile Duct Obstruction"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "ABCB11",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "ABCB11"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa01522",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa01522"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Bile Duct Obstruction",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Hepatobiliary disorders.",
+          "organ_system": "liver",
+          "soc": "Hepatobiliary disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C0008370"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> ABCB11 -> KEGG:hsa01522 -> Bile Duct Obstruction",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "local DTA row"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C0008370",
+          "name": "Bile Duct Obstruction",
+          "organ_bucket": "Digestive/Hepatobiliary",
+          "severity": "Moderate"
+        },
+        "uniprot_id": "O95342",
+        "gene": "ABCB11",
+        "protein": "Bile salt export pump (EC 7.6.2.-) (ATP-binding cassette sub-family B member 11)",
+        "pathways_sample": [
+          "KEGG:hsa01522",
+          "KEGG:hsa02010",
+          "KEGG:hsa04976",
+          "KEGG:hsa04979",
+          "MSigDB_Hallmark:HALLMARK_KRAS_SIGNALING_DN"
+        ],
+        "pubmed": ""
+      }
+    },
+    {
+      "chain_id": "amiodarone_liver_ABCB11",
+      "organ_system": "liver",
+      "organ_systems": [
+        "liver"
+      ],
+      "soc": "Hepatobiliary disorders",
+      "ade_id": "C0008372",
+      "evidence_type": "direct_DTA",
+      "pubmed": [],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "O95342",
+          "gene": "ABCB11",
+          "protein": "Bile salt export pump (EC 7.6.2.-) (ATP-binding cassette sub-family B member 11)"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa01522",
+          "name": "KEGG:hsa01522"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C0008372",
+          "name": "Intrahepatic Cholestasis"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "ABCB11",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "ABCB11"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa01522",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa01522"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Intrahepatic Cholestasis",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Hepatobiliary disorders.",
+          "organ_system": "liver",
+          "soc": "Hepatobiliary disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C0008372"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> ABCB11 -> KEGG:hsa01522 -> Intrahepatic Cholestasis",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "local DTA row"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C0008372",
+          "name": "Intrahepatic Cholestasis",
+          "organ_bucket": "Digestive/Hepatobiliary",
+          "severity": ""
+        },
+        "uniprot_id": "O95342",
+        "gene": "ABCB11",
+        "protein": "Bile salt export pump (EC 7.6.2.-) (ATP-binding cassette sub-family B member 11)",
+        "pathways_sample": [
+          "KEGG:hsa01522",
+          "KEGG:hsa02010",
+          "KEGG:hsa04976",
+          "KEGG:hsa04979",
+          "MSigDB_Hallmark:HALLMARK_KRAS_SIGNALING_DN"
+        ],
+        "pubmed": ""
+      }
+    },
+    {
+      "chain_id": "amiodarone_liver_ATG7",
+      "organ_system": "liver",
+      "organ_systems": [
+        "liver"
+      ],
+      "soc": "Hepatobiliary disorders",
+      "ade_id": "C0019209",
+      "evidence_type": "direct_DTA",
+      "pubmed": [],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "O95352",
+          "gene": "ATG7",
+          "protein": "Ubiquitin-like modifier-activating enzyme ATG7 (ATG12-activating enzyme E1 ATG7) (Autophagy-related protein 7) (APG7-like) (hAGP7) (Ubiquitin-activating enzyme E1-like protein)"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa04613",
+          "name": "KEGG:hsa04613"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C0019209",
+          "name": "Enlarged Liver"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "ATG7",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "ATG7"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa04613",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa04613"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Enlarged Liver",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Hepatobiliary disorders.",
+          "organ_system": "liver",
+          "soc": "Hepatobiliary disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C0019209"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> ATG7 -> KEGG:hsa04613 -> Enlarged Liver",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "local DTA row"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C0019209",
+          "name": "Enlarged Liver",
+          "organ_bucket": "Digestive/Hepatobiliary",
+          "severity": "Moderate"
+        },
+        "uniprot_id": "O95352",
+        "gene": "ATG7",
+        "protein": "Ubiquitin-like modifier-activating enzyme ATG7 (ATG12-activating enzyme E1 ATG7) (Autophagy-related protein 7) (APG7-like) (hAGP7) (Ubiquitin-activating enzyme E1-like protein)",
+        "pathways_sample": [
+          "KEGG:hsa04613",
+          "KEGG:hsa04140",
+          "KEGG:hsa04216",
+          "KEGG:hsa04136"
+        ],
+        "pubmed": ""
+      }
+    },
+    {
+      "chain_id": "amiodarone_liver_SNAI1",
+      "organ_system": "liver",
+      "organ_systems": [
+        "liver"
+      ],
+      "soc": "Hepatobiliary disorders",
+      "ade_id": "C0008370",
+      "evidence_type": "direct_DTA",
+      "pubmed": [],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "O95863",
+          "gene": "SNAI1",
+          "protein": "Zinc finger protein SNAI1 (Protein snail homolog 1) (Protein sna)"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa04520",
+          "name": "KEGG:hsa04520"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C0008370",
+          "name": "Bile Duct Obstruction"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "SNAI1",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "SNAI1"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa04520",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa04520"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Bile Duct Obstruction",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Hepatobiliary disorders.",
+          "organ_system": "liver",
+          "soc": "Hepatobiliary disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C0008370"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> SNAI1 -> KEGG:hsa04520 -> Bile Duct Obstruction",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "local DTA row"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C0008370",
+          "name": "Bile Duct Obstruction",
+          "organ_bucket": "Digestive/Hepatobiliary",
+          "severity": "Moderate"
+        },
+        "uniprot_id": "O95863",
+        "gene": "SNAI1",
+        "protein": "Zinc finger protein SNAI1 (Protein snail homolog 1) (Protein sna)",
+        "pathways_sample": [
+          "KEGG:hsa04520"
+        ],
+        "pubmed": ""
+      }
+    },
+    {
+      "chain_id": "amiodarone_liver_FADS2",
+      "organ_system": "liver",
+      "organ_systems": [
+        "liver"
+      ],
+      "soc": "Hepatobiliary disorders",
+      "ade_id": "C0860207",
+      "evidence_type": "direct_DTA",
+      "pubmed": [],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "O95864",
+          "gene": "FADS2",
+          "protein": "Acyl-CoA 6-desaturase (EC 1.14.19.3) (Delta(6) fatty acid desaturase) (D6D) (Delta(6) desaturase) (Delta-6 desaturase) (Fatty acid desaturase 2)"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa03320",
+          "name": "KEGG:hsa03320"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C0860207",
+          "name": "Drug Induced Liver Injury"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "FADS2",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "FADS2"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa03320",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa03320"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Drug Induced Liver Injury",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Hepatobiliary disorders.",
+          "organ_system": "liver",
+          "soc": "Hepatobiliary disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C0860207"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> FADS2 -> KEGG:hsa03320 -> Drug Induced Liver Injury",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "local DTA row"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C0860207",
+          "name": "Drug Induced Liver Injury",
+          "organ_bucket": "Digestive/Hepatobiliary",
+          "severity": "Moderate"
+        },
+        "uniprot_id": "O95864",
+        "gene": "FADS2",
+        "protein": "Acyl-CoA 6-desaturase (EC 1.14.19.3) (Delta(6) fatty acid desaturase) (D6D) (Delta(6) desaturase) (Delta-6 desaturase) (Fatty acid desaturase 2)",
+        "pathways_sample": [
+          "KEGG:hsa03320",
+          "KEGG:hsa01212",
+          "KEGG:hsa00592",
+          "KEGG:hsa01040",
+          "MSigDB_Hallmark:HALLMARK_BILE_ACID_METABOLISM"
+        ],
+        "pubmed": ""
+      }
+    },
+    {
+      "chain_id": "amiodarone_liver_FADS2",
+      "organ_system": "liver",
+      "organ_systems": [
+        "liver"
+      ],
+      "soc": "Hepatobiliary disorders",
+      "ade_id": "C1262760",
+      "evidence_type": "direct_DTA",
+      "pubmed": [],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "O95864",
+          "gene": "FADS2",
+          "protein": "Acyl-CoA 6-desaturase (EC 1.14.19.3) (Delta(6) fatty acid desaturase) (D6D) (Delta(6) desaturase) (Delta-6 desaturase) (Fatty acid desaturase 2)"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa03320",
+          "name": "KEGG:hsa03320"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C1262760",
+          "name": "Drug Induced Hepatitis"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "FADS2",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "FADS2"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa03320",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa03320"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Drug Induced Hepatitis",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Hepatobiliary disorders.",
+          "organ_system": "liver",
+          "soc": "Hepatobiliary disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C1262760"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> FADS2 -> KEGG:hsa03320 -> Drug Induced Hepatitis",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "local DTA row"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C1262760",
+          "name": "Drug Induced Hepatitis",
+          "organ_bucket": "Digestive/Hepatobiliary",
+          "severity": ""
+        },
+        "uniprot_id": "O95864",
+        "gene": "FADS2",
+        "protein": "Acyl-CoA 6-desaturase (EC 1.14.19.3) (Delta(6) fatty acid desaturase) (D6D) (Delta(6) desaturase) (Delta-6 desaturase) (Fatty acid desaturase 2)",
+        "pathways_sample": [
+          "KEGG:hsa03320",
+          "KEGG:hsa01212",
+          "KEGG:hsa00592",
+          "KEGG:hsa01040",
+          "MSigDB_Hallmark:HALLMARK_BILE_ACID_METABOLISM"
+        ],
+        "pubmed": ""
+      }
+    },
+    {
+      "chain_id": "amiodarone_liver_FADS2",
+      "organ_system": "liver",
+      "organ_systems": [
+        "liver"
+      ],
+      "soc": "Hepatobiliary disorders",
+      "ade_id": "C4277682",
+      "evidence_type": "direct_DTA",
+      "pubmed": [],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "O95864",
+          "gene": "FADS2",
+          "protein": "Acyl-CoA 6-desaturase (EC 1.14.19.3) (Delta(6) fatty acid desaturase) (D6D) (Delta(6) desaturase) (Delta-6 desaturase) (Fatty acid desaturase 2)"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa03320",
+          "name": "KEGG:hsa03320"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C4277682",
+          "name": "Chemical And Drug Induced Liver Injury"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "FADS2",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "FADS2"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa03320",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa03320"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Chemical And Drug Induced Liver Injury",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Hepatobiliary disorders.",
+          "organ_system": "liver",
+          "soc": "Hepatobiliary disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C4277682"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> FADS2 -> KEGG:hsa03320 -> Chemical And Drug Induced Liver Injury",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "local DTA row"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C4277682",
+          "name": "Chemical And Drug Induced Liver Injury",
+          "organ_bucket": "Digestive/Hepatobiliary",
+          "severity": ""
+        },
+        "uniprot_id": "O95864",
+        "gene": "FADS2",
+        "protein": "Acyl-CoA 6-desaturase (EC 1.14.19.3) (Delta(6) fatty acid desaturase) (D6D) (Delta(6) desaturase) (Delta-6 desaturase) (Fatty acid desaturase 2)",
+        "pathways_sample": [
+          "KEGG:hsa03320",
+          "KEGG:hsa01212",
+          "KEGG:hsa00592",
+          "KEGG:hsa01040",
+          "MSigDB_Hallmark:HALLMARK_BILE_ACID_METABOLISM"
+        ],
+        "pubmed": ""
+      }
+    },
+    {
+      "chain_id": "amiodarone_heart_EGFR",
+      "organ_system": "heart",
+      "organ_systems": [
+        "heart"
+      ],
+      "soc": "Cardiac disorders",
+      "ade_id": "C0007193",
+      "evidence_type": "direct_DTA",
+      "pubmed": [],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "P00533",
+          "gene": "EGFR",
+          "protein": "Epidermal growth factor receptor (EC 2.7.10.1) (Proto-oncogene c-ErbB-1) (Receptor tyrosine-protein kinase erbB-1)"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa04010",
+          "name": "KEGG:hsa04010"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C0007193",
+          "name": "Cardiomyopathy Dilated"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "EGFR",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "EGFR"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa04010",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa04010"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Cardiomyopathy Dilated",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Cardiac disorders.",
+          "organ_system": "heart",
+          "soc": "Cardiac disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C0007193"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> EGFR -> KEGG:hsa04010 -> Cardiomyopathy Dilated",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "local DTA row"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C0007193",
+          "name": "Cardiomyopathy Dilated",
+          "organ_bucket": "Cardiovascular",
+          "severity": "Severe"
+        },
+        "uniprot_id": "P00533",
+        "gene": "EGFR",
+        "protein": "Epidermal growth factor receptor (EC 2.7.10.1) (Proto-oncogene c-ErbB-1) (Receptor tyrosine-protein kinase erbB-1)",
+        "pathways_sample": [
+          "KEGG:hsa04010",
+          "KEGG:hsa04151",
+          "KEGG:hsa04020",
+          "KEGG:hsa05205",
+          "KEGG:hsa04015"
+        ],
+        "pubmed": ""
+      }
+    },
+    {
+      "chain_id": "amiodarone_liver_F2",
+      "organ_system": "liver",
+      "organ_systems": [
+        "liver"
+      ],
+      "soc": "Hepatobiliary disorders",
+      "ade_id": "C0015695",
+      "evidence_type": "direct_DTA",
+      "pubmed": [],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "P00734",
+          "gene": "F2",
+          "protein": "Prothrombin (EC 3.4.21.5) (Coagulation factor II) [Cleaved into: Activation peptide fragment 1; Activation peptide fragment 2; Thrombin light chain; Thrombin heavy chain]"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa04080",
+          "name": "KEGG:hsa04080"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C0015695",
+          "name": "Fatty Liver"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "F2",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "F2"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa04080",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa04080"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Fatty Liver",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Hepatobiliary disorders.",
+          "organ_system": "liver",
+          "soc": "Hepatobiliary disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C0015695"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> F2 -> KEGG:hsa04080 -> Fatty Liver",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "local DTA row"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C0015695",
+          "name": "Fatty Liver",
+          "organ_bucket": "Digestive/Hepatobiliary",
+          "severity": "Moderate"
+        },
+        "uniprot_id": "P00734",
+        "gene": "F2",
+        "protein": "Prothrombin (EC 3.4.21.5) (Coagulation factor II) [Cleaved into: Activation peptide fragment 1; Activation peptide fragment 2; Thrombin light chain; Thrombin heavy chain]",
+        "pathways_sample": [
+          "KEGG:hsa04080",
+          "KEGG:hsa04610",
+          "KEGG:hsa04810",
+          "KEGG:hsa04611",
+          "KEGG:hsa04072"
+        ],
+        "pubmed": ""
+      }
+    },
+    {
+      "chain_id": "amiodarone_heart_F2",
+      "organ_system": "heart",
+      "organ_systems": [
+        "heart"
+      ],
+      "soc": "Cardiac disorders",
+      "ade_id": "C0027051",
+      "evidence_type": "direct_DTA",
+      "pubmed": [],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "P00734",
+          "gene": "F2",
+          "protein": "Prothrombin (EC 3.4.21.5) (Coagulation factor II) [Cleaved into: Activation peptide fragment 1; Activation peptide fragment 2; Thrombin light chain; Thrombin heavy chain]"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa04080",
+          "name": "KEGG:hsa04080"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C0027051",
+          "name": "Ami"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "F2",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "F2"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa04080",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa04080"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Ami",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Cardiac disorders.",
+          "organ_system": "heart",
+          "soc": "Cardiac disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C0027051"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> F2 -> KEGG:hsa04080 -> Ami",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "local DTA row"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C0027051",
+          "name": "Ami",
+          "organ_bucket": "Cardiovascular",
+          "severity": "Moderate"
+        },
+        "uniprot_id": "P00734",
+        "gene": "F2",
+        "protein": "Prothrombin (EC 3.4.21.5) (Coagulation factor II) [Cleaved into: Activation peptide fragment 1; Activation peptide fragment 2; Thrombin light chain; Thrombin heavy chain]",
+        "pathways_sample": [
+          "KEGG:hsa04080",
+          "KEGG:hsa04610",
+          "KEGG:hsa04810",
+          "KEGG:hsa04611",
+          "KEGG:hsa04072"
+        ],
+        "pubmed": ""
+      }
+    },
+    {
+      "chain_id": "amiodarone_liver_F2",
+      "organ_system": "liver",
+      "organ_systems": [
+        "liver"
+      ],
+      "soc": "Hepatobiliary disorders",
+      "ade_id": "C2711227",
+      "evidence_type": "direct_DTA",
+      "pubmed": [],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "P00734",
+          "gene": "F2",
+          "protein": "Prothrombin (EC 3.4.21.5) (Coagulation factor II) [Cleaved into: Activation peptide fragment 1; Activation peptide fragment 2; Thrombin light chain; Thrombin heavy chain]"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa04080",
+          "name": "KEGG:hsa04080"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C2711227",
+          "name": "Fatty Infiltration Of Liver"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "F2",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "F2"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa04080",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa04080"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Fatty Infiltration Of Liver",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Hepatobiliary disorders.",
+          "organ_system": "liver",
+          "soc": "Hepatobiliary disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C2711227"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> F2 -> KEGG:hsa04080 -> Fatty Infiltration Of Liver",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "local DTA row"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C2711227",
+          "name": "Fatty Infiltration Of Liver",
+          "organ_bucket": "Digestive/Hepatobiliary",
+          "severity": "Severe"
+        },
+        "uniprot_id": "P00734",
+        "gene": "F2",
+        "protein": "Prothrombin (EC 3.4.21.5) (Coagulation factor II) [Cleaved into: Activation peptide fragment 1; Activation peptide fragment 2; Thrombin light chain; Thrombin heavy chain]",
+        "pathways_sample": [
+          "KEGG:hsa04080",
+          "KEGG:hsa04610",
+          "KEGG:hsa04810",
+          "KEGG:hsa04611",
+          "KEGG:hsa04072"
+        ],
+        "pubmed": ""
+      }
+    },
+    {
+      "chain_id": "amiodarone_heart_AGT",
+      "organ_system": "heart",
+      "organ_systems": [
+        "heart"
+      ],
+      "soc": "Cardiac disorders",
+      "ade_id": "C0007222",
+      "evidence_type": "direct_DTA",
+      "pubmed": [],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "P01019",
+          "gene": "AGT",
+          "protein": "Angiotensinogen (Serpin A8) [Cleaved into: Angiotensin-1 (Angiotensin 1-10) (Angiotensin I) (Ang I); Angiotensin-2 (Angiotensin 1-8) (Angiotensin II) (Ang II); Angiotensin-3 (Angiotensin 2-8) (Angiotensin III) (Ang III) (Des-Asp[1]-angiotensin II); Angiotensin-4 (Angiotensin 3-8) (Angiotensin IV) (Ang IV); Angiotensin 1-9; Angiotensin 1-7; Angiotensin 1-5; Angiotensin 1-4]"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa04081",
+          "name": "KEGG:hsa04081"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C0007222",
+          "name": "Cardiovascular Disease"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "AGT",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "AGT"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa04081",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa04081"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Cardiovascular Disease",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Cardiac disorders.",
+          "organ_system": "heart",
+          "soc": "Cardiac disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C0007222"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> AGT -> KEGG:hsa04081 -> Cardiovascular Disease",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "local DTA row"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C0007222",
+          "name": "Cardiovascular Disease",
+          "organ_bucket": "Cardiovascular",
+          "severity": "Severe"
+        },
+        "uniprot_id": "P01019",
+        "gene": "AGT",
+        "protein": "Angiotensinogen (Serpin A8) [Cleaved into: Angiotensin-1 (Angiotensin 1-10) (Angiotensin I) (Ang I); Angiotensin-2 (Angiotensin 1-8) (Angiotensin II) (Ang II); Angiotensin-3 (Angiotensin 2-8) (Angiotensin III) (Ang III) (Des-Asp[1]-angiotensin II); Angiotensin-4 (Angiotensin 3-8) (Angiotensin IV) (Ang IV); Angiotensin 1-9; Angiotensin 1-7; Angiotensin 1-5; Angiotensin 1-4]",
+        "pathways_sample": [
+          "KEGG:hsa04081",
+          "KEGG:hsa04080",
+          "KEGG:hsa04933",
+          "KEGG:hsa04934",
+          "KEGG:hsa04925"
+        ],
+        "pubmed": ""
+      }
+    },
+    {
+      "chain_id": "amiodarone_liver_AGT",
+      "organ_system": "liver",
+      "organ_systems": [
+        "liver"
+      ],
+      "soc": "Hepatobiliary disorders",
+      "ade_id": "C0008370",
+      "evidence_type": "direct_DTA",
+      "pubmed": [],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "P01019",
+          "gene": "AGT",
+          "protein": "Angiotensinogen (Serpin A8) [Cleaved into: Angiotensin-1 (Angiotensin 1-10) (Angiotensin I) (Ang I); Angiotensin-2 (Angiotensin 1-8) (Angiotensin II) (Ang II); Angiotensin-3 (Angiotensin 2-8) (Angiotensin III) (Ang III) (Des-Asp[1]-angiotensin II); Angiotensin-4 (Angiotensin 3-8) (Angiotensin IV) (Ang IV); Angiotensin 1-9; Angiotensin 1-7; Angiotensin 1-5; Angiotensin 1-4]"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa04081",
+          "name": "KEGG:hsa04081"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C0008370",
+          "name": "Bile Duct Obstruction"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "AGT",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "AGT"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa04081",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa04081"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Bile Duct Obstruction",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Hepatobiliary disorders.",
+          "organ_system": "liver",
+          "soc": "Hepatobiliary disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C0008370"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> AGT -> KEGG:hsa04081 -> Bile Duct Obstruction",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "local DTA row"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C0008370",
+          "name": "Bile Duct Obstruction",
+          "organ_bucket": "Digestive/Hepatobiliary",
+          "severity": "Moderate"
+        },
+        "uniprot_id": "P01019",
+        "gene": "AGT",
+        "protein": "Angiotensinogen (Serpin A8) [Cleaved into: Angiotensin-1 (Angiotensin 1-10) (Angiotensin I) (Ang I); Angiotensin-2 (Angiotensin 1-8) (Angiotensin II) (Ang II); Angiotensin-3 (Angiotensin 2-8) (Angiotensin III) (Ang III) (Des-Asp[1]-angiotensin II); Angiotensin-4 (Angiotensin 3-8) (Angiotensin IV) (Ang IV); Angiotensin 1-9; Angiotensin 1-7; Angiotensin 1-5; Angiotensin 1-4]",
+        "pathways_sample": [
+          "KEGG:hsa04081",
+          "KEGG:hsa04080",
+          "KEGG:hsa04933",
+          "KEGG:hsa04934",
+          "KEGG:hsa04925"
+        ],
+        "pubmed": ""
+      }
+    },
+    {
+      "chain_id": "amiodarone_heart_AGT",
+      "organ_system": "heart",
+      "organ_systems": [
+        "heart"
+      ],
+      "soc": "Cardiac disorders",
+      "ade_id": "C0018799",
+      "evidence_type": "direct_DTA",
+      "pubmed": [],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "P01019",
+          "gene": "AGT",
+          "protein": "Angiotensinogen (Serpin A8) [Cleaved into: Angiotensin-1 (Angiotensin 1-10) (Angiotensin I) (Ang I); Angiotensin-2 (Angiotensin 1-8) (Angiotensin II) (Ang II); Angiotensin-3 (Angiotensin 2-8) (Angiotensin III) (Ang III) (Des-Asp[1]-angiotensin II); Angiotensin-4 (Angiotensin 3-8) (Angiotensin IV) (Ang IV); Angiotensin 1-9; Angiotensin 1-7; Angiotensin 1-5; Angiotensin 1-4]"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa04081",
+          "name": "KEGG:hsa04081"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C0018799",
+          "name": "Cardiac Diseases"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "AGT",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "AGT"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa04081",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa04081"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Cardiac Diseases",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Cardiac disorders.",
+          "organ_system": "heart",
+          "soc": "Cardiac disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C0018799"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> AGT -> KEGG:hsa04081 -> Cardiac Diseases",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "local DTA row"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C0018799",
+          "name": "Cardiac Diseases",
+          "organ_bucket": "Cardiovascular",
+          "severity": "Moderate"
+        },
+        "uniprot_id": "P01019",
+        "gene": "AGT",
+        "protein": "Angiotensinogen (Serpin A8) [Cleaved into: Angiotensin-1 (Angiotensin 1-10) (Angiotensin I) (Ang I); Angiotensin-2 (Angiotensin 1-8) (Angiotensin II) (Ang II); Angiotensin-3 (Angiotensin 2-8) (Angiotensin III) (Ang III) (Des-Asp[1]-angiotensin II); Angiotensin-4 (Angiotensin 3-8) (Angiotensin IV) (Ang IV); Angiotensin 1-9; Angiotensin 1-7; Angiotensin 1-5; Angiotensin 1-4]",
+        "pathways_sample": [
+          "KEGG:hsa04081",
+          "KEGG:hsa04080",
+          "KEGG:hsa04933",
+          "KEGG:hsa04934",
+          "KEGG:hsa04925"
+        ],
+        "pubmed": ""
+      }
+    },
+    {
+      "chain_id": "amiodarone_heart_AGT",
+      "organ_system": "heart",
+      "organ_systems": [
+        "heart"
+      ],
+      "soc": "Cardiac disorders",
+      "ade_id": "C0018801",
+      "evidence_type": "direct_DTA",
+      "pubmed": [],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "P01019",
+          "gene": "AGT",
+          "protein": "Angiotensinogen (Serpin A8) [Cleaved into: Angiotensin-1 (Angiotensin 1-10) (Angiotensin I) (Ang I); Angiotensin-2 (Angiotensin 1-8) (Angiotensin II) (Ang II); Angiotensin-3 (Angiotensin 2-8) (Angiotensin III) (Ang III) (Des-Asp[1]-angiotensin II); Angiotensin-4 (Angiotensin 3-8) (Angiotensin IV) (Ang IV); Angiotensin 1-9; Angiotensin 1-7; Angiotensin 1-5; Angiotensin 1-4]"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa04081",
+          "name": "KEGG:hsa04081"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C0018801",
+          "name": "Cardiac Failure"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "AGT",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "AGT"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa04081",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa04081"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Cardiac Failure",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Cardiac disorders.",
+          "organ_system": "heart",
+          "soc": "Cardiac disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C0018801"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> AGT -> KEGG:hsa04081 -> Cardiac Failure",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "local DTA row"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C0018801",
+          "name": "Cardiac Failure",
+          "organ_bucket": "Cardiovascular",
+          "severity": "Severe"
+        },
+        "uniprot_id": "P01019",
+        "gene": "AGT",
+        "protein": "Angiotensinogen (Serpin A8) [Cleaved into: Angiotensin-1 (Angiotensin 1-10) (Angiotensin I) (Ang I); Angiotensin-2 (Angiotensin 1-8) (Angiotensin II) (Ang II); Angiotensin-3 (Angiotensin 2-8) (Angiotensin III) (Ang III) (Des-Asp[1]-angiotensin II); Angiotensin-4 (Angiotensin 3-8) (Angiotensin IV) (Ang IV); Angiotensin 1-9; Angiotensin 1-7; Angiotensin 1-5; Angiotensin 1-4]",
+        "pathways_sample": [
+          "KEGG:hsa04081",
+          "KEGG:hsa04080",
+          "KEGG:hsa04933",
+          "KEGG:hsa04934",
+          "KEGG:hsa04925"
+        ],
+        "pubmed": ""
+      }
+    },
+    {
+      "chain_id": "amiodarone_heart_AGT",
+      "organ_system": "heart",
+      "organ_systems": [
+        "heart"
+      ],
+      "soc": "Cardiac disorders",
+      "ade_id": "C0027051",
+      "evidence_type": "direct_DTA",
+      "pubmed": [],
+      "chain": [
+        {
+          "node_type": "Target",
+          "id": "P01019",
+          "gene": "AGT",
+          "protein": "Angiotensinogen (Serpin A8) [Cleaved into: Angiotensin-1 (Angiotensin 1-10) (Angiotensin I) (Ang I); Angiotensin-2 (Angiotensin 1-8) (Angiotensin II) (Ang II); Angiotensin-3 (Angiotensin 2-8) (Angiotensin III) (Ang III) (Des-Asp[1]-angiotensin II); Angiotensin-4 (Angiotensin 3-8) (Angiotensin IV) (Ang IV); Angiotensin 1-9; Angiotensin 1-7; Angiotensin 1-5; Angiotensin 1-4]"
+        },
+        {
+          "node_type": "Pathway",
+          "id": "KEGG:hsa04081",
+          "name": "KEGG:hsa04081"
+        },
+        {
+          "node_type": "ADE",
+          "id": "C0027051",
+          "name": "Ami"
+        }
+      ],
+      "nodes": [
+        {
+          "order": 1,
+          "node_type": "drug_original",
+          "label": "Amiodarone",
+          "role": "parent_drug",
+          "confidence": 0.75,
+          "description": "Drug resolved by PersAgent.",
+          "evidence": [
+            {
+              "source": "PersAgent",
+              "tier": 2,
+              "ref": "Amiodarone"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "node_type": "metabolism",
+          "label": "DrugBank metabolism context",
+          "role": "metabolism_context",
+          "confidence": 0.35,
+          "description": "Filled by metabolism tool when available.",
+          "phase": [
+            "other"
+          ],
+          "enzymes": [],
+          "evidence": []
+        },
+        {
+          "order": 3,
+          "node_type": "active_or_toxic_species",
+          "label": "parent or unknown active/toxic species",
+          "role": "exposure_context",
+          "confidence": 0.3,
+          "description": "No explicit metabolite in PersADE DTA row.",
+          "species_type": "unknown_active_or_toxic_species",
+          "evidence": []
+        },
+        {
+          "order": 4,
+          "node_type": "target_binding",
+          "label": "AGT",
+          "role": "drug_target_ade_association",
+          "confidence": 0.68,
+          "description": "Target node from PersADE DTA.",
+          "binding_role": "unknown",
+          "target_type": "protein",
+          "evidence": [
+            {
+              "source": "PersADE DTA",
+              "tier": 2,
+              "ref": "AGT"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "node_type": "pathway_perturbation",
+          "label": "KEGG:hsa04081",
+          "role": "target_pathway_context",
+          "confidence": 0.55,
+          "description": "Pathway mapped from PersADE uniprot_pathway.",
+          "evidence": [
+            {
+              "source": "PersADE Pathway",
+              "tier": 2,
+              "ref": "KEGG:hsa04081"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "node_type": "organ_toxicity_phenotype",
+          "label": "Ami",
+          "role": "ADE phenotype",
+          "confidence": 0.62,
+          "description": "ADE phenotype mapped to Cardiac disorders.",
+          "organ_system": "heart",
+          "soc": "Cardiac disorders",
+          "evidence": [
+            {
+              "source": "PersADE ADE_Information",
+              "tier": 2,
+              "ref": "C0027051"
+            }
+          ]
+        }
+      ],
+      "summary": "Amiodarone -> AGT -> KEGG:hsa04081 -> Ami",
+      "chain_score": 0.68,
+      "chain_confidence": 0.62,
+      "evidence": [
+        {
+          "source": "PersADE DTA/Pathway",
+          "tier": 2,
+          "ref": "local DTA row"
+        }
+      ],
+      "_persagent_raw": {
+        "ade": {
+          "umls": "C0027051",
+          "name": "Ami",
+          "organ_bucket": "Cardiovascular",
+          "severity": "Moderate"
+        },
+        "uniprot_id": "P01019",
+        "gene": "AGT",
+        "protein": "Angiotensinogen (Serpin A8) [Cleaved into: Angiotensin-1 (Angiotensin 1-10) (Angiotensin I) (Ang I); Angiotensin-2 (Angiotensin 1-8) (Angiotensin II) (Ang II); Angiotensin-3 (Angiotensin 2-8) (Angiotensin III) (Ang III) (Des-Asp[1]-angiotensin II); Angiotensin-4 (Angiotensin 3-8) (Angiotensin IV) (Ang IV); Angiotensin 1-9; Angiotensin 1-7; Angiotensin 1-5; Angiotensin 1-4]",
+        "pathways_sample": [
+          "KEGG:hsa04081",
+          "KEGG:hsa04080",
+          "KEGG:hsa04933",
+          "KEGG:hsa04934",
+          "KEGG:hsa04925"
+        ],
+        "pubmed": ""
+      }
+    }
+  ],
+  "persade_contextual_evidence": [
+    {
+      "ade_id": "C1096355",
+      "soc": null,
+      "overall": {
+        "ror": 90.62642669077152,
+        "total_score": 6.187217230646642,
+        "case_number": 5.0,
+        "prr": 90.58614877117294,
+        "severity_grade": "Mild"
+      },
+      "subgroups": {
+        "age": null,
+        "sex": {
+          "label": "Male",
+          "pct": 20.0,
+          "count": 1
+        },
+        "route": {
+          "key": "ORAL",
+          "total_score": 2.8834247833505326,
+          "ror": 37.27675646529799,
+          "case_number": 1.0
+        },
+        "form": null,
+        "indication": null
+      },
+      "contextual_risk_shift": -3.3038,
+      "uncertainty": 0.5
+    },
+    {
+      "ade_id": "C1535964",
+      "soc": null,
+      "overall": {
+        "ror": 73.76954735152488,
+        "total_score": 3.410964975380606,
+        "case_number": 1.0,
+        "prr": 73.76300685652654,
+        "severity_grade": "Severe"
+      },
+      "subgroups": {
+        "age": null,
+        "sex": {
+          "label": "Male",
+          "pct": 100.0,
+          "count": 1
+        },
+        "route": {
+          "key": "ORAL",
+          "total_score": 4.330421833549298,
+          "ror": 211.2357604058573,
+          "case_number": 1.0
+        },
+        "form": null,
+        "indication": null
+      },
+      "contextual_risk_shift": 0.9195,
+      "uncertainty": 0.5
+    },
+    {
+      "ade_id": "C1960445",
+      "soc": null,
+      "overall": {
+        "ror": 169.120338220743,
+        "total_score": 6.911552925891851,
+        "case_number": 9.0,
+        "prr": 168.98434298040627,
+        "severity_grade": "Moderate"
+      },
+      "subgroups": {
+        "age": null,
+        "sex": {
+          "label": "Male",
+          "pct": 100.0,
+          "count": 8
+        },
+        "route": {
+          "key": "ORAL",
+          "total_score": 5.9945186841290505,
+          "ror": 108.672694018784,
+          "case_number": 3.0
+        },
+        "form": null,
+        "indication": null
+      },
+      "contextual_risk_shift": -0.917,
+      "uncertainty": 0.3
+    },
+    {
+      "ade_id": "C1963794",
+      "soc": null,
+      "overall": {
+        "ror": 133.2968658456648,
+        "total_score": 6.241635858721431,
+        "case_number": 4.0,
+        "prr": 133.24930270856407,
+        "severity_grade": "Mild"
+      },
+      "subgroups": {
+        "age": null,
+        "sex": {
+          "label": "Male",
+          "pct": 50.0,
+          "count": 2
+        },
+        "route": {
+          "key": "ORAL",
+          "total_score": 6.575552935628419,
+          "ror": 266.9621588145827,
+          "case_number": 4.0
+        },
+        "form": null,
+        "indication": null
+      },
+      "contextual_risk_shift": 0.3339,
+      "uncertainty": 0.3
+    },
+    {
+      "ade_id": "C1963849",
+      "soc": null,
+      "overall": {
+        "ror": 123.9881762589928,
+        "total_score": 6.456496092695509,
+        "case_number": 6.0,
+        "prr": 123.9218515189646,
+        "severity_grade": "Severe"
+      },
+      "subgroups": {
+        "age": null,
+        "sex": {
+          "label": "Male",
+          "pct": 50.0,
+          "count": 3
+        },
+        "route": {
+          "key": "ORAL",
+          "total_score": 6.558700085612073,
+          "ror": 507.0535893444041,
+          "case_number": 2.0
+        },
+        "form": null,
+        "indication": null
+      },
+      "contextual_risk_shift": 0.1022,
+      "uncertainty": 0.5
+    },
+    {
+      "ade_id": "C1997537",
+      "soc": null,
+      "overall": {
+        "ror": 295.1048954641188,
+        "total_score": 6.29843677054421,
+        "case_number": 2.0,
+        "prr": 295.0520274261062,
+        "severity_grade": "Severe"
+      },
+      "subgroups": {
+        "age": null,
+        "sex": null,
+        "route": null,
+        "form": null,
+        "indication": null
+      },
+      "contextual_risk_shift": 0.0,
+      "uncertainty": 0.5
+    },
+    {
+      "ade_id": "C0039235",
+      "soc": null,
+      "overall": {
+        "ror": 217.48458720979755,
+        "total_score": 6.477059098317813,
+        "case_number": 4.0,
+        "prr": 217.40675705081503,
+        "severity_grade": "Critical"
+      },
+      "subgroups": {
+        "age": null,
+        "sex": {
+          "label": "Male",
+          "pct": 75.0,
+          "count": 3
+        },
+        "route": null,
+        "form": null,
+        "indication": null
+      },
+      "contextual_risk_shift": 0.0,
+      "uncertainty": 0.5
+    },
+    {
+      "ade_id": "C1112309",
+      "soc": null,
+      "overall": {
+        "ror": 147.5391845906902,
+        "total_score": 3.987831316815543,
+        "case_number": 1.0,
+        "prr": 147.5260137130531,
+        "severity_grade": "Mild"
+      },
+      "subgroups": {
+        "age": null,
+        "sex": {
+          "label": "Male",
+          "pct": 100.0,
+          "count": 1
+        },
+        "route": null,
+        "form": null,
+        "indication": null
+      },
+      "contextual_risk_shift": 0.0,
+      "uncertainty": 0.5
+    },
+    {
+      "ade_id": "C0347632",
+      "soc": null,
+      "overall": {
+        "ror": 93.8885393258427,
+        "total_score": 3.612449516889919,
+        "case_number": 1.0,
+        "prr": 93.88019054467011,
+        "severity_grade": "Critical"
+      },
+      "subgroups": {
+        "age": null,
+        "sex": {
+          "label": "Male",
+          "pct": 100.0,
+          "count": 1
+        },
+        "route": null,
+        "form": null,
+        "indication": null
+      },
+      "contextual_risk_shift": 0.0,
+      "uncertainty": 0.5
+    },
+    {
+      "ade_id": "C0858522",
+      "soc": null,
+      "overall": {
+        "ror": 87.55432918939432,
+        "total_score": 6.170632839770131,
+        "case_number": 5.0,
+        "prr": 87.51543186367554,
+        "severity_grade": "Mild"
+      },
+      "subgroups": {
+        "age": null,
+        "sex": {
+          "label": "Male",
+          "pct": 100.0,
+          "count": 5
+        },
+        "route": null,
+        "form": null,
+        "indication": null
+      },
+      "contextual_risk_shift": 0.0,
+      "uncertainty": 0.5
+    },
+    {
+      "ade_id": "C1262485",
+      "soc": null,
+      "overall": {
+        "ror": 86.09508287624014,
+        "total_score": 6.16255030149917,
+        "case_number": 5.0,
+        "prr": 86.0568413326143,
+        "severity_grade": "Mild"
+      },
+      "subgroups": {
+        "age": null,
+        "sex": {
+          "label": "Male",
+          "pct": 100.0,
+          "count": 5
+        },
+        "route": null,
+        "form": null,
+        "indication": null
+      },
+      "contextual_risk_shift": 0.0,
+      "uncertainty": 0.5
+    },
+    {
+      "ade_id": "C4285759",
+      "soc": null,
+      "overall": {
+        "ror": 73.76954735152488,
+        "total_score": 3.410964975380606,
+        "case_number": 1.0,
+        "prr": 73.76300685652654,
+        "severity_grade": null
+      },
+      "subgroups": {
+        "age": null,
+        "sex": null,
+        "route": null,
+        "form": null,
+        "indication": null
+      },
+      "contextual_risk_shift": 0.0,
+      "uncertainty": 0.5
+    },
+    {
+      "ade_id": "C1963785",
+      "soc": null,
+      "overall": {
+        "ror": 68.85157153558052,
+        "total_score": 3.353123301394356,
+        "case_number": 1.0,
+        "prr": 68.84547306609143,
+        "severity_grade": "Mild"
+      },
+      "subgroups": {
+        "age": null,
+        "sex": {
+          "label": "Male",
+          "pct": 100.0,
+          "count": 1
+        },
+        "route": null,
+        "form": null,
+        "indication": null
+      },
+      "contextual_risk_shift": 0.0,
+      "uncertainty": 0.5
+    },
+    {
+      "ade_id": "C1410098",
+      "soc": null,
+      "overall": {
+        "ror": 67.96970761811461,
+        "total_score": 6.048870966931432,
+        "case_number": 5.0,
+        "prr": 67.93961157837971,
+        "severity_grade": "Critical"
+      },
+      "subgroups": {
+        "age": null,
+        "sex": {
+          "label": "Male",
+          "pct": 40.0,
+          "count": 2
+        },
+        "route": null,
+        "form": null,
+        "indication": null
+      },
+      "contextual_risk_shift": 0.0,
+      "uncertainty": 0.5
+    }
+  ],
+  "baseline_organ_risk": [
+    {
+      "soc": "Hepatobiliary disorders",
+      "risk_level": "moderate",
+      "probability": 0.58,
+      "uncertainty": 0.419,
+      "main_ade_terms": [
+        "Contusion Of Liver",
+        "Computerised Tomogram Liver Abnormal",
+        "Cholestatic Pruritus"
+      ],
+      "main_drivers": [
+        "label_DILI_t positive",
+        "label_Mito_t positive",
+        "PersADE high ROR signal",
+        "Direct DTA support via ERN1",
+        "Direct DTA support via ABCB11",
+        "Direct DTA support via ATG7"
+      ],
+      "evidence_summary": [
+        {
+          "source": "admetSAR3",
+          "evidence_type": "model_feature",
+          "detail": "label_DILI_t=1",
+          "support": 0.06
+        },
+        {
+          "source": "admetSAR3",
+          "evidence_type": "model_feature",
+          "detail": "label_Mito_t=1",
+          "support": 0.06
+        },
+        {
+          "source": "PersADE/FAERS",
+          "evidence_type": "signal",
+          "detail": "Contusion Of Liver: ROR=93.8885393258427, lower_CI=12.120165955547613, cases=1.0",
+          "support": 0.14
+        },
+        {
+          "source": "PersADE/FAERS",
+          "evidence_type": "signal",
+          "detail": "Computerised Tomogram Liver Abnormal: ROR=73.76954735152488, lower_CI=9.699439311861475, cases=1.0",
+          "support": 0.14
+        },
+        {
+          "source": "PersADE/FAERS",
+          "evidence_type": "signal",
+          "detail": "Cholestatic Pruritus: ROR=73.76954735152488, lower_CI=9.699439311861475, cases=1.0",
+          "support": 0.11
+        },
+        {
+          "source": "PersADE DTA/DTI/AT/Pathway",
+          "evidence_type": "direct_DTA",
+          "detail": "Direct DTA support via ERN1",
+          "pubmed": [],
+          "support": 0.12
+        },
+        {
+          "source": "PersADE DTA/DTI/AT/Pathway",
+          "evidence_type": "direct_DTA",
+          "detail": "Direct DTA support via ERN1",
+          "pubmed": [],
+          "support": 0.12
+        },
+        {
+          "source": "PersADE DTA/DTI/AT/Pathway",
+          "evidence_type": "direct_DTA",
+          "detail": "Direct DTA support via ERN1",
+          "pubmed": [],
+          "support": 0.12
+        },
+        {
+          "source": "PersADE DTA/DTI/AT/Pathway",
+          "evidence_type": "direct_DTA",
+          "detail": "Direct DTA support via ABCB11",
+          "pubmed": [],
+          "support": 0.15
+        },
+        {
+          "source": "PersADE DTA/DTI/AT/Pathway",
+          "evidence_type": "direct_DTA",
+          "detail": "Direct DTA support via ABCB11",
+          "pubmed": [],
+          "support": 0.15
+        }
+      ]
+    },
+    {
+      "soc": "Cardiac disorders",
+      "risk_level": "high",
+      "probability": 0.78,
+      "uncertainty": 0.26,
+      "main_ade_terms": [
+        "Tachycardia Induced Cardiomyopathy",
+        "Cardiac Arrest Neonatal",
+        "His Bundle (Junctional Ectopic) Tachycardia",
+        "Electrocardiogram T Wave Alternans",
+        "Arrhythmic Storm"
+      ],
+      "main_drivers": [
+        "label_hERG_1_10 positive",
+        "label_hERG_1 positive",
+        "label_hERG_10 positive",
+        "label_hERG_10_30 positive",
+        "label_hERG_30 positive",
+        "PersADE high ROR signal"
+      ],
+      "evidence_summary": [
+        {
+          "source": "admetSAR3",
+          "evidence_type": "model_feature",
+          "detail": "label_hERG_1_10=1",
+          "support": 0.06
+        },
+        {
+          "source": "admetSAR3",
+          "evidence_type": "model_feature",
+          "detail": "label_hERG_1=1",
+          "support": 0.06
+        },
+        {
+          "source": "admetSAR3",
+          "evidence_type": "model_feature",
+          "detail": "label_hERG_10=1",
+          "support": 0.06
+        },
+        {
+          "source": "admetSAR3",
+          "evidence_type": "model_feature",
+          "detail": "label_hERG_10_30=1",
+          "support": 0.06
+        },
+        {
+          "source": "admetSAR3",
+          "evidence_type": "model_feature",
+          "detail": "label_hERG_30=1",
+          "support": 0.06
+        },
+        {
+          "source": "PersADE/FAERS",
+          "evidence_type": "signal",
+          "detail": "Tachycardia Induced Cardiomyopathy: ROR=169.120338220743, lower_CI=83.56306172992794, cases=9.0",
+          "support": 0.16
+        },
+        {
+          "source": "PersADE/FAERS",
+          "evidence_type": "signal",
+          "detail": "Cardiac Arrest Neonatal: ROR=67.96970761811461, lower_CI=27.49373584582608, cases=5.0",
+          "support": 0.15
+        },
+        {
+          "source": "PersADE/FAERS",
+          "evidence_type": "signal",
+          "detail": "His Bundle (Junctional Ectopic) Tachycardia: ROR=217.48458720979755, lower_CI=73.9754473374265, cases=4.0",
+          "support": 0.14
+        },
+        {
+          "source": "PersADE/FAERS",
+          "evidence_type": "signal",
+          "detail": "Electrocardiogram T Wave Alternans: ROR=295.1048954641188, lower_CI=61.2966252699651, cases=2.0",
+          "support": 0.14
+        },
+        {
+          "source": "PersADE/FAERS",
+          "evidence_type": "signal",
+          "detail": "Arrhythmic Storm: ROR=123.9881762589928, lower_CI=53.1525069304649, cases=6.0",
+          "support": 0.14
+        }
+      ]
+    },
+    {
+      "soc": "Renal and urinary disorders",
+      "risk_level": null,
+      "probability": null,
+      "uncertainty": null,
+      "main_ade_terms": [],
+      "main_drivers": [],
+      "evidence_summary": []
+    },
+    {
+      "soc": "Blood and lymphatic system disorders",
+      "risk_level": null,
+      "probability": null,
+      "uncertainty": null,
+      "main_ade_terms": [],
+      "main_drivers": [],
+      "evidence_summary": []
+    },
+    {
+      "soc": "Immune system disorders",
+      "risk_level": null,
+      "probability": null,
+      "uncertainty": null,
+      "main_ade_terms": [],
+      "main_drivers": [],
+      "evidence_summary": []
+    },
+    {
+      "soc": "Skin and subcutaneous tissue disorders",
+      "risk_level": null,
+      "probability": null,
+      "uncertainty": null,
+      "main_ade_terms": [],
+      "main_drivers": [],
+      "evidence_summary": []
+    },
+    {
+      "soc": "Nervous system disorders",
+      "risk_level": null,
+      "probability": null,
+      "uncertainty": null,
+      "main_ade_terms": [],
+      "main_drivers": [],
+      "evidence_summary": []
+    },
+    {
+      "soc": "Gastrointestinal disorders",
+      "risk_level": null,
+      "probability": null,
+      "uncertainty": null,
+      "main_ade_terms": [],
+      "main_drivers": [],
+      "evidence_summary": []
+    }
+  ],
+  "attribution_explanations": [
+    {
+      "soc": "Hepatobiliary disorders",
+      "baseline_risk_level": "moderate",
+      "baseline_probability": 0.58,
+      "attribution_explanation": "Hepatobiliary disorders attribution is driven mainly by Drug-induced liver injury (DILI_t) prediction positive. The explanation is constrained to retrieved tool_results and evidence_items.",
+      "attribution_generation_method": "live_llm",
+      "molecular_attribution": [
+        {
+          "driver_type": "admet_endpoint",
+          "driver": "Drug-induced liver injury (DILI_t) prediction positive",
+          "contribution_role": "probability_driver",
+          "mechanistic_role": "Computational model predicts direct hepatotoxicity liability",
+          "direction": "increase",
+          "confidence": 0.6,
+          "evidence_refs": [
+            {
+              "tool_name": "admetsar_predict",
+              "field": "tool_results.admetsar_predict.admet_profile",
+              "summary": "label_DILI_t=1, mechanism_group=hepatotoxicity"
+            }
+          ],
+          "limitations": "admetSAR3 model probability contribution 0.06; limited by model applicability domain."
+        }
+      ],
+      "attribution_limitations": [
+        "Live LLM returned a bare driver object; local code wrapped it as molecular_attribution.",
+        "No explicit SMARTS-level toxicophore match was available.",
+        "No GNN attention attribution was available in Stage 1 tool_results.",
+        "No SHAP atom/feature attribution was available in Stage 1 tool_results."
+      ]
+    },
+    {
+      "soc": "Cardiac disorders",
+      "baseline_risk_level": "high",
+      "baseline_probability": 0.78,
+      "attribution_explanation": "Cardiac disorders attribution is driven mainly by hERG inhibition (all concentration thresholds positive). The explanation is constrained to retrieved tool_results and evidence_items.",
+      "attribution_generation_method": "live_llm",
+      "molecular_attribution": [
+        {
+          "driver_type": "admet_endpoint",
+          "driver": "hERG inhibition (all concentration thresholds positive)",
+          "contribution_role": "probability_driver",
+          "mechanistic_role": "Blockade of the hERG potassium channel prolongs cardiac repolarization, increasing risk of QT prolongation and life-threatening arrhythmias.",
+          "direction": "increase",
+          "confidence": 0.8,
+          "evidence_refs": [
+            {
+              "tool_name": "admetsar_predict",
+              "field": "tool_results.admetsar_predict.admet_profile",
+              "summary": "label_hERG_1_10=1, label_hERG_1=1, label_hERG_10=1, label_hERG_10_30=1, label_hERG_30=1 - all positive for hERG inhibition."
+            }
+          ],
+          "limitations": "In silico predictions; not direct electrophysiology data."
+        }
+      ],
+      "attribution_limitations": [
+        "Live LLM returned a bare driver object; local code wrapped it as molecular_attribution.",
+        "No explicit SMARTS-level toxicophore match was available.",
+        "No GNN attention attribution was available in Stage 1 tool_results.",
+        "No SHAP atom/feature attribution was available in Stage 1 tool_results."
+      ]
+    },
+    {
+      "soc": "Renal and urinary disorders",
+      "baseline_risk_level": null,
+      "baseline_probability": null,
+      "attribution_explanation": null,
+      "attribution_generation_method": "deterministic_fallback",
+      "molecular_attribution": [],
+      "attribution_limitations": []
+    },
+    {
+      "soc": "Blood and lymphatic system disorders",
+      "baseline_risk_level": null,
+      "baseline_probability": null,
+      "attribution_explanation": null,
+      "attribution_generation_method": "deterministic_fallback",
+      "molecular_attribution": [],
+      "attribution_limitations": []
+    },
+    {
+      "soc": "Immune system disorders",
+      "baseline_risk_level": null,
+      "baseline_probability": null,
+      "attribution_explanation": null,
+      "attribution_generation_method": "deterministic_fallback",
+      "molecular_attribution": [],
+      "attribution_limitations": []
+    },
+    {
+      "soc": "Skin and subcutaneous tissue disorders",
+      "baseline_risk_level": null,
+      "baseline_probability": null,
+      "attribution_explanation": null,
+      "attribution_generation_method": "deterministic_fallback",
+      "molecular_attribution": [],
+      "attribution_limitations": []
+    },
+    {
+      "soc": "Nervous system disorders",
+      "baseline_risk_level": null,
+      "baseline_probability": null,
+      "attribution_explanation": null,
+      "attribution_generation_method": "deterministic_fallback",
+      "molecular_attribution": [],
+      "attribution_limitations": []
+    },
+    {
+      "soc": "Gastrointestinal disorders",
+      "baseline_risk_level": null,
+      "baseline_probability": null,
+      "attribution_explanation": null,
+      "attribution_generation_method": "deterministic_fallback",
+      "molecular_attribution": [],
+      "attribution_limitations": []
+    }
+  ],
+  "universal_attribution_cards": [
+    {
+      "soc": "Hepatobiliary disorders",
+      "organ_system": "liver",
+      "modeled": true,
+      "generation_method": "live_llm",
+      "risk_judgement": {
+        "baseline_risk_level": "moderate",
+        "baseline_probability": 0.58,
+        "uncertainty": 0.419,
+        "judgement": "Baseline probability is supported by label_DILI_t positive; label_Mito_t positive; PersADE high ROR signal; Direct DTA support via ERN1; Direct DTA support via ABCB11.",
+        "uncertainty_summary": null,
+        "uncertainty_drivers": [
+          "No explicit SMARTS-level toxicophore match was available.",
+          "No GNN attention attribution was available in Stage 1 tool_results.",
+          "No SHAP atom/feature attribution was available in Stage 1 tool_results."
+        ]
+      },
+      "evidence_chain": {
+        "chain_type": "curated_mechanism_chain",
+        "readable_path": [
+          "drug_original: Amiodarone (parent_drug; conf=0.75; [PersAgent | tier 2 | Amiodarone])",
+          "metabolism: DrugBank metabolism context (metabolism_context; conf=0.35)",
+          "active_or_toxic_species: parent or unknown active/toxic species (exposure_context; conf=0.30)",
+          "target_binding: ERN1 (drug_target_ade_association; binding=unknown; conf=0.68; [PersADE DTA | tier 2 | ERN1])",
+          "pathway_perturbation: KEGG:hsa05417 (target_pathway_context; conf=0.55; [PersADE Pathway | tier 2 | KEGG:hsa05417])",
+          "organ_toxicity_phenotype: Drug Induced Liver Injury (ADE phenotype; conf=0.62; [PersADE ADE_Information | tier 2 | C0860207])",
+          "SOC: Hepatobiliary disorders"
+        ],
+        "nodes": [
+          {
+            "node_type": "drug_original",
+            "label": "Amiodarone",
+            "confidence": 0.75,
+            "evidence_refs": [
+              "[PersAgent | tier 2 | Amiodarone]"
+            ],
+            "line": "drug_original: Amiodarone (parent_drug; conf=0.75; [PersAgent | tier 2 | Amiodarone])",
+            "impact_type": "mechanistic_context_only",
+            "impact_note": "Retrieved evidence from PersAgent (Amiodarone) supports Amiodarone as part of the mechanism chain. It is treated as context unless the same evidence appears in the probability audit as a scored driver.",
+            "impact_source": "template_fallback"
+          },
+          {
+            "node_type": "metabolism",
+            "label": "DrugBank metabolism context",
+            "confidence": 0.35,
+            "evidence_refs": [],
+            "line": "metabolism: DrugBank metabolism context (metabolism_context; conf=0.35)",
+            "impact_type": "mechanistic_context_only",
+            "impact_note": "Retrieved metabolism knowledge places the drug in a metabolic context. Because no metabolism-specific probability driver was found in the baseline audit, it supports plausibility but does not independently raise the probability.",
+            "impact_source": "template_fallback"
+          },
+          {
+            "node_type": "active_or_toxic_species",
+            "label": "parent or unknown active/toxic species",
+            "confidence": 0.3,
+            "evidence_refs": [],
+            "line": "active_or_toxic_species: parent or unknown active/toxic species (exposure_context; conf=0.30)",
+            "impact_type": "uncertainty_or_gap",
+            "impact_note": "The chain keeps the active or toxic species explicit, but the retrieved evidence did not resolve a specific toxic metabolite. This preserves the causal route while adding uncertainty rather than direct probability support.",
+            "impact_source": "template_fallback"
+          },
+          {
+            "node_type": "target_binding",
+            "label": "ERN1",
+            "confidence": 0.68,
+            "evidence_refs": [
+              "[PersADE DTA | tier 2 | ERN1]"
+            ],
+            "line": "target_binding: ERN1 (drug_target_ade_association; binding=unknown; conf=0.68; [PersADE DTA | tier 2 | ERN1])",
+            "impact_type": "direct_probability_support",
+            "impact_note": "Retrieved probability-audit evidence maps to ERN1 with support=0.12. This node therefore contributes direct support to the baseline probability rather than only explaining the mechanism.",
+            "impact_source": "template_fallback"
+          },
+          {
+            "node_type": "pathway_perturbation",
+            "label": "KEGG:hsa05417",
+            "confidence": 0.55,
+            "evidence_refs": [
+              "[PersADE Pathway | tier 2 | KEGG:hsa05417]"
+            ],
+            "line": "pathway_perturbation: KEGG:hsa05417 (target_pathway_context; conf=0.55; [PersADE Pathway | tier 2 | KEGG:hsa05417])",
+            "impact_type": "mechanistic_context_only",
+            "impact_note": "Retrieved evidence from PersADE Pathway (KEGG:hsa05417) supports KEGG:hsa05417 as part of the mechanism chain. It is treated as context unless the same evidence appears in the probability audit as a scored driver.",
+            "impact_source": "template_fallback"
+          },
+          {
+            "node_type": "organ_toxicity_phenotype",
+            "label": "Drug Induced Liver Injury",
+            "confidence": 0.62,
+            "evidence_refs": [
+              "[PersADE ADE_Information | tier 2 | C0860207]"
+            ],
+            "line": "organ_toxicity_phenotype: Drug Induced Liver Injury (ADE phenotype; conf=0.62; [PersADE ADE_Information | tier 2 | C0860207])",
+            "impact_type": "mechanistic_context_only",
+            "impact_note": "Retrieved evidence from PersADE ADE_Information (C0860207) supports Drug Induced Liver Injury as part of the mechanism chain. It is treated as context unless the same evidence appears in the probability audit as a scored driver.",
+            "impact_source": "template_fallback"
+          }
+        ],
+        "chain_id": "amiodarone_liver_ERN1",
+        "chain_score": 0.68,
+        "chain_confidence": 0.62,
+        "mechanism_summary": null
+      },
+      "driver_layers": {
+        "probability_drivers": [
+          {
+            "label": "label_DILI_t=1",
+            "direction": "increase",
+            "support": 0.06,
+            "ref": "[admetSAR3 | model_feature | label_DILI_t=1]",
+            "source": "admetSAR3",
+            "evidence_type": "model_feature"
+          },
+          {
+            "label": "label_Mito_t=1",
+            "direction": "increase",
+            "support": 0.06,
+            "ref": "[admetSAR3 | model_feature | label_Mito_t=1]",
+            "source": "admetSAR3",
+            "evidence_type": "model_feature"
+          },
+          {
+            "label": "Contusion Of Liver: ROR=93.8885393258427, lower_CI=12.120165955547613, cases=1.0",
+            "direction": "increase",
+            "support": 0.14,
+            "ref": "[PersADE/FAERS | signal | Contusion Of Liver: ROR=93.8885393258427, lower_CI=12.120165955547613, cases=1.0]",
+            "source": "PersADE/FAERS",
+            "evidence_type": "signal"
+          },
+          {
+            "label": "Computerised Tomogram Liver Abnormal: ROR=73.76954735152488, lower_CI=9.699439311861475, cases=1.0",
+            "direction": "increase",
+            "support": 0.14,
+            "ref": "[PersADE/FAERS | signal | Computerised Tomogram Liver Abnormal: ROR=73.76954735152488, lower_CI=9.69943931186...]",
+            "source": "PersADE/FAERS",
+            "evidence_type": "signal"
+          },
+          {
+            "label": "Cholestatic Pruritus: ROR=73.76954735152488, lower_CI=9.699439311861475, cases=1.0",
+            "direction": "increase",
+            "support": 0.11,
+            "ref": "[PersADE/FAERS | signal | Cholestatic Pruritus: ROR=73.76954735152488, lower_CI=9.699439311861475, cases=1.0]",
+            "source": "PersADE/FAERS",
+            "evidence_type": "signal"
+          },
+          {
+            "label": "Direct DTA support via ERN1",
+            "direction": "increase",
+            "support": 0.12,
+            "ref": "[PersADE DTA/DTI/AT/Pathway | direct_DTA | Direct DTA support via ERN1]",
+            "source": "PersADE DTA/DTI/AT/Pathway",
+            "evidence_type": "direct_DTA"
+          }
+        ],
+        "mechanistic_context": [],
+        "population_context": []
+      },
+      "uncertainty_and_traceability": {
+        "uncertainty": 0.419,
+        "limitations": [
+          "No explicit SMARTS-level toxicophore match was available.",
+          "No GNN attention attribution was available in Stage 1 tool_results.",
+          "No SHAP atom/feature attribution was available in Stage 1 tool_results."
+        ],
+        "trace_refs": [
+          "[admetSAR3 | model_feature | label_DILI_t=1]",
+          "[admetSAR3 | model_feature | label_Mito_t=1]",
+          "[PersADE/FAERS | signal | Contusion Of Liver: ROR=93.8885393258427, lower_CI=12.120165955547613, cases=1.0]",
+          "[PersADE/FAERS | signal | Computerised Tomogram Liver Abnormal: ROR=73.76954735152488, lower_CI=9.69943931186...]",
+          "[PersADE/FAERS | signal | Cholestatic Pruritus: ROR=73.76954735152488, lower_CI=9.699439311861475, cases=1.0]",
+          "[PersADE DTA/DTI/AT/Pathway | direct_DTA | Direct DTA support via ERN1]",
+          "[PersADE DTA/DTI/AT/Pathway | direct_DTA | Direct DTA support via ABCB11]",
+          "[PersAgent DrugBank/PersADE | tier 2 | PersAgent-local; 2026; Drug identity and pharmacology resolved locally.]",
+          "[PersAgent admetSAR3 | tier 3 | PersAgent-local; 2026; ADMET endpoints retrieved through PersAgent.]",
+          "[PersADE/FAERS signals | tier 1 | PersAgent-local; 2026; Known ADE spectrum retrieved through PersAgent.]"
+        ]
+      }
+    },
+    {
+      "soc": "Cardiac disorders",
+      "organ_system": "heart",
+      "modeled": true,
+      "generation_method": "live_llm",
+      "risk_judgement": {
+        "baseline_risk_level": "high",
+        "baseline_probability": 0.78,
+        "uncertainty": 0.26,
+        "judgement": "Baseline probability is supported by label_hERG_1_10 positive; label_hERG_1 positive; label_hERG_10 positive; label_hERG_10_30 positive; label_hERG_30 positive.",
+        "uncertainty_summary": null,
+        "uncertainty_drivers": [
+          "No explicit SMARTS-level toxicophore match was available.",
+          "No GNN attention attribution was available in Stage 1 tool_results.",
+          "No SHAP atom/feature attribution was available in Stage 1 tool_results."
+        ]
+      },
+      "evidence_chain": {
+        "chain_type": "curated_mechanism_chain",
+        "readable_path": [
+          "drug_original: Amiodarone (parent_drug; conf=0.75; [PersAgent | tier 2 | Amiodarone])",
+          "metabolism: DrugBank metabolism context (metabolism_context; conf=0.35)",
+          "active_or_toxic_species: parent or unknown active/toxic species (exposure_context; conf=0.30)",
+          "target_binding: SLC22A5 (drug_target_ade_association; binding=unknown; conf=0.68; [PersADE DTA | tier 2 | 21641380])",
+          "pathway_perturbation: KEGG:hsa05231 (target_pathway_context; conf=0.55; [PersADE Pathway | tier 2 | KEGG:hsa05231])",
+          "organ_toxicity_phenotype: Cardiomyopathy Dilated (ADE phenotype; conf=0.62; [PersADE ADE_Information | tier 2 | C0007193])",
+          "SOC: Cardiac disorders"
+        ],
+        "nodes": [
+          {
+            "node_type": "drug_original",
+            "label": "Amiodarone",
+            "confidence": 0.75,
+            "evidence_refs": [
+              "[PersAgent | tier 2 | Amiodarone]"
+            ],
+            "line": "drug_original: Amiodarone (parent_drug; conf=0.75; [PersAgent | tier 2 | Amiodarone])",
+            "impact_type": "mechanistic_context_only",
+            "impact_note": "Retrieved evidence from PersAgent (Amiodarone) supports Amiodarone as part of the mechanism chain. It is treated as context unless the same evidence appears in the probability audit as a scored driver.",
+            "impact_source": "template_fallback"
+          },
+          {
+            "node_type": "metabolism",
+            "label": "DrugBank metabolism context",
+            "confidence": 0.35,
+            "evidence_refs": [],
+            "line": "metabolism: DrugBank metabolism context (metabolism_context; conf=0.35)",
+            "impact_type": "mechanistic_context_only",
+            "impact_note": "Retrieved metabolism knowledge places the drug in a metabolic context. Because no metabolism-specific probability driver was found in the baseline audit, it supports plausibility but does not independently raise the probability.",
+            "impact_source": "template_fallback"
+          },
+          {
+            "node_type": "active_or_toxic_species",
+            "label": "parent or unknown active/toxic species",
+            "confidence": 0.3,
+            "evidence_refs": [],
+            "line": "active_or_toxic_species: parent or unknown active/toxic species (exposure_context; conf=0.30)",
+            "impact_type": "uncertainty_or_gap",
+            "impact_note": "The chain keeps the active or toxic species explicit, but the retrieved evidence did not resolve a specific toxic metabolite. This preserves the causal route while adding uncertainty rather than direct probability support.",
+            "impact_source": "template_fallback"
+          },
+          {
+            "node_type": "target_binding",
+            "label": "SLC22A5",
+            "confidence": 0.68,
+            "evidence_refs": [
+              "[PersADE DTA | tier 2 | 21641380]"
+            ],
+            "line": "target_binding: SLC22A5 (drug_target_ade_association; binding=unknown; conf=0.68; [PersADE DTA | tier 2 | 21641380])",
+            "impact_type": "mechanistic_context_only",
+            "impact_note": "Retrieved evidence from PersADE DTA (21641380) supports SLC22A5 as part of the mechanism chain. It is treated as context unless the same evidence appears in the probability audit as a scored driver.",
+            "impact_source": "template_fallback"
+          },
+          {
+            "node_type": "pathway_perturbation",
+            "label": "KEGG:hsa05231",
+            "confidence": 0.55,
+            "evidence_refs": [
+              "[PersADE Pathway | tier 2 | KEGG:hsa05231]"
+            ],
+            "line": "pathway_perturbation: KEGG:hsa05231 (target_pathway_context; conf=0.55; [PersADE Pathway | tier 2 | KEGG:hsa05231])",
+            "impact_type": "mechanistic_context_only",
+            "impact_note": "Retrieved evidence from PersADE Pathway (KEGG:hsa05231) supports KEGG:hsa05231 as part of the mechanism chain. It is treated as context unless the same evidence appears in the probability audit as a scored driver.",
+            "impact_source": "template_fallback"
+          },
+          {
+            "node_type": "organ_toxicity_phenotype",
+            "label": "Cardiomyopathy Dilated",
+            "confidence": 0.62,
+            "evidence_refs": [
+              "[PersADE ADE_Information | tier 2 | C0007193]"
+            ],
+            "line": "organ_toxicity_phenotype: Cardiomyopathy Dilated (ADE phenotype; conf=0.62; [PersADE ADE_Information | tier 2 | C0007193])",
+            "impact_type": "mechanistic_context_only",
+            "impact_note": "Retrieved evidence from PersADE ADE_Information (C0007193) supports Cardiomyopathy Dilated as part of the mechanism chain. It is treated as context unless the same evidence appears in the probability audit as a scored driver.",
+            "impact_source": "template_fallback"
+          }
+        ],
+        "chain_id": "amiodarone_heart_SLC22A5",
+        "chain_score": 0.68,
+        "chain_confidence": 0.62,
+        "mechanism_summary": null
+      },
+      "driver_layers": {
+        "probability_drivers": [
+          {
+            "label": "label_hERG_1_10=1",
+            "direction": "increase",
+            "support": 0.06,
+            "ref": "[admetSAR3 | model_feature | label_hERG_1_10=1]",
+            "source": "admetSAR3",
+            "evidence_type": "model_feature"
+          },
+          {
+            "label": "label_hERG_1=1",
+            "direction": "increase",
+            "support": 0.06,
+            "ref": "[admetSAR3 | model_feature | label_hERG_1=1]",
+            "source": "admetSAR3",
+            "evidence_type": "model_feature"
+          },
+          {
+            "label": "label_hERG_10=1",
+            "direction": "increase",
+            "support": 0.06,
+            "ref": "[admetSAR3 | model_feature | label_hERG_10=1]",
+            "source": "admetSAR3",
+            "evidence_type": "model_feature"
+          },
+          {
+            "label": "label_hERG_10_30=1",
+            "direction": "increase",
+            "support": 0.06,
+            "ref": "[admetSAR3 | model_feature | label_hERG_10_30=1]",
+            "source": "admetSAR3",
+            "evidence_type": "model_feature"
+          },
+          {
+            "label": "label_hERG_30=1",
+            "direction": "increase",
+            "support": 0.06,
+            "ref": "[admetSAR3 | model_feature | label_hERG_30=1]",
+            "source": "admetSAR3",
+            "evidence_type": "model_feature"
+          },
+          {
+            "label": "Tachycardia Induced Cardiomyopathy: ROR=169.120338220743, lower_CI=83.56306172992794, cases=9.0",
+            "direction": "increase",
+            "support": 0.16,
+            "ref": "[PersADE/FAERS | signal | Tachycardia Induced Cardiomyopathy: ROR=169.120338220743, lower_CI=83.5630617299279...]",
+            "source": "PersADE/FAERS",
+            "evidence_type": "signal"
+          }
+        ],
+        "mechanistic_context": [],
+        "population_context": []
+      },
+      "uncertainty_and_traceability": {
+        "uncertainty": 0.26,
+        "limitations": [
+          "No explicit SMARTS-level toxicophore match was available.",
+          "No GNN attention attribution was available in Stage 1 tool_results.",
+          "No SHAP atom/feature attribution was available in Stage 1 tool_results."
+        ],
+        "trace_refs": [
+          "[admetSAR3 | model_feature | label_hERG_1_10=1]",
+          "[admetSAR3 | model_feature | label_hERG_1=1]",
+          "[admetSAR3 | model_feature | label_hERG_10=1]",
+          "[admetSAR3 | model_feature | label_hERG_10_30=1]",
+          "[admetSAR3 | model_feature | label_hERG_30=1]",
+          "[PersADE/FAERS | signal | Tachycardia Induced Cardiomyopathy: ROR=169.120338220743, lower_CI=83.5630617299279...]",
+          "[PersADE/FAERS | signal | Cardiac Arrest Neonatal: ROR=67.96970761811461, lower_CI=27.49373584582608, cases=5.0]",
+          "[PersADE/FAERS | signal | His Bundle (Junctional Ectopic) Tachycardia: ROR=217.48458720979755, lower_CI=73.97...]",
+          "[PersADE/FAERS | signal | Electrocardiogram T Wave Alternans: ROR=295.1048954641188, lower_CI=61.296625269965...]",
+          "[PersADE/FAERS | signal | Arrhythmic Storm: ROR=123.9881762589928, lower_CI=53.1525069304649, cases=6.0]"
+        ]
+      }
+    },
+    {
+      "soc": "Renal and urinary disorders",
+      "organ_system": "kidney",
+      "modeled": false,
+      "not_modeled_reason": "Not actively modeled in Stage 1; retained as null placeholder."
+    },
+    {
+      "soc": "Blood and lymphatic system disorders",
+      "organ_system": "hematologic",
+      "modeled": false,
+      "not_modeled_reason": "Not actively modeled in Stage 1; retained as null placeholder."
+    },
+    {
+      "soc": "Immune system disorders",
+      "organ_system": "immune",
+      "modeled": false,
+      "not_modeled_reason": "Not actively modeled in Stage 1; retained as null placeholder."
+    },
+    {
+      "soc": "Skin and subcutaneous tissue disorders",
+      "organ_system": "skin",
+      "modeled": false,
+      "not_modeled_reason": "Not actively modeled in Stage 1; retained as null placeholder."
+    },
+    {
+      "soc": "Nervous system disorders",
+      "organ_system": "neurologic",
+      "modeled": false,
+      "not_modeled_reason": "Not actively modeled in Stage 1; retained as null placeholder."
+    },
+    {
+      "soc": "Gastrointestinal disorders",
+      "organ_system": "gastrointestinal",
+      "modeled": false,
+      "not_modeled_reason": "Not actively modeled in Stage 1; retained as null placeholder."
+    }
+  ],
+  "universal_toxicity_report": {
+    "drug": {
+      "name": "Amiodarone",
+      "smiles": "CCCCC1=C(C(=O)C2=CC(I)=C(OCCN(CC)CC)C(I)=C2)C2=C(O1)C=CC=C2",
+      "drugbank_id": "DB01118"
+    },
+    "general_toxicity": [
+      {
+        "soc": "Hepatobiliary disorders",
+        "baseline_risk_level": "moderate",
+        "baseline_probability": 0.58,
+        "uncertainty": 0.419,
+        "ctcae_grade_predicted": 3,
+        "attribution": {
+          "structural": [],
+          "property": [
+            {
+              "feature": "MW",
+              "value": 645.319,
+              "contribution": 0.05
+            },
+            {
+              "feature": "HBA",
+              "value": 4.0,
+              "contribution": 0.08
+            },
+            {
+              "feature": "HBD",
+              "value": 0.0,
+              "contribution": 0.08
+            },
+            {
+              "feature": "nRot",
+              "value": 11.0,
+              "contribution": 0.08
+            },
+            {
+              "feature": "TPSA",
+              "value": 42.68,
+              "contribution": 0.05
+            },
+            {
+              "feature": "SlogP",
+              "value": 6.9362,
+              "contribution": 0.08
+            },
+            {
+              "feature": "nRing",
+              "value": 3.0,
+              "contribution": 0.08
+            },
+            {
+              "feature": "nAtom",
+              "value": 31.0,
+              "contribution": 0.08
+            },
+            {
+              "feature": "nHet",
+              "value": 6.0,
+              "contribution": 0.08
+            },
+            {
+              "feature": "QED",
+              "value": 0.167647246,
+              "contribution": 0.05
+            },
+            {
+              "feature": "label_DILI_t",
+              "value": 1.0,
+              "contribution": 0.08
+            },
+            {
+              "feature": "label_Mito_t",
+              "value": 1.0,
+              "contribution": 0.08
+            }
+          ],
+          "admet_endpoint": [
+            {
+              "endpoint": "label_DILI_t",
+              "value": "1",
+              "endpoint_type": "numeric",
+              "mechanism_group": "hepatotoxicity",
+              "soc": "Hepatobiliary disorders",
+              "evidence_role": "model_feature"
+            },
+            {
+              "endpoint": "label_Mito_t",
+              "value": "1",
+              "endpoint_type": "numeric",
+              "mechanism_group": "mitochondrial",
+              "soc": "Hepatobiliary disorders",
+              "evidence_role": "model_feature"
+            }
+          ],
+          "target_pathway": [
+            {
+              "source": "PersADE DTA/DTI/AT/Pathway",
+              "evidence_type": "direct_DTA",
+              "target": {
+                "id": "O75460",
+                "gene": "ERN1",
+                "protein": "Serine/threonine-protein kinase/endoribonuclease IRE1 (Endoplasmic reticulum-to-nucleus signaling 1) (Inositol-requiring protein 1) (hIRE1p) (Ire1-alpha) (IRE1a) [Includes: Serine/threonine-protein kinase (EC 2.7.11.1); Endoribonuclease (EC 3.1.26.-)]"
+              },
+              "pathway": {
+                "id": "KEGG:hsa05417",
+                "name": "KEGG:hsa05417"
+              },
+              "ade": {
+                "id": "C0860207",
+                "name": "Drug Induced Liver Injury"
+              },
+              "pubmed": []
+            },
+            {
+              "source": "PersADE DTA/DTI/AT/Pathway",
+              "evidence_type": "direct_DTA",
+              "target": {
+                "id": "O75460",
+                "gene": "ERN1",
+                "protein": "Serine/threonine-protein kinase/endoribonuclease IRE1 (Endoplasmic reticulum-to-nucleus signaling 1) (Inositol-requiring protein 1) (hIRE1p) (Ire1-alpha) (IRE1a) [Includes: Serine/threonine-protein kinase (EC 2.7.11.1); Endoribonuclease (EC 3.1.26.-)]"
+              },
+              "pathway": {
+                "id": "KEGG:hsa05417",
+                "name": "KEGG:hsa05417"
+              },
+              "ade": {
+                "id": "C1262760",
+                "name": "Drug Induced Hepatitis"
+              },
+              "pubmed": []
+            },
+            {
+              "source": "PersADE DTA/DTI/AT/Pathway",
+              "evidence_type": "direct_DTA",
+              "target": {
+                "id": "O75460",
+                "gene": "ERN1",
+                "protein": "Serine/threonine-protein kinase/endoribonuclease IRE1 (Endoplasmic reticulum-to-nucleus signaling 1) (Inositol-requiring protein 1) (hIRE1p) (Ire1-alpha) (IRE1a) [Includes: Serine/threonine-protein kinase (EC 2.7.11.1); Endoribonuclease (EC 3.1.26.-)]"
+              },
+              "pathway": {
+                "id": "KEGG:hsa05417",
+                "name": "KEGG:hsa05417"
+              },
+              "ade": {
+                "id": "C4277682",
+                "name": "Chemical And Drug Induced Liver Injury"
+              },
+              "pubmed": []
+            },
+            {
+              "source": "PersADE DTA/DTI/AT/Pathway",
+              "evidence_type": "direct_DTA",
+              "target": {
+                "id": "O95342",
+                "gene": "ABCB11",
+                "protein": "Bile salt export pump (EC 7.6.2.-) (ATP-binding cassette sub-family B member 11)"
+              },
+              "pathway": {
+                "id": "KEGG:hsa01522",
+                "name": "KEGG:hsa01522"
+              },
+              "ade": {
+                "id": "C0008370",
+                "name": "Bile Duct Obstruction"
+              },
+              "pubmed": []
+            },
+            {
+              "source": "PersADE DTA/DTI/AT/Pathway",
+              "evidence_type": "direct_DTA",
+              "target": {
+                "id": "O95342",
+                "gene": "ABCB11",
+                "protein": "Bile salt export pump (EC 7.6.2.-) (ATP-binding cassette sub-family B member 11)"
+              },
+              "pathway": {
+                "id": "KEGG:hsa01522",
+                "name": "KEGG:hsa01522"
+              },
+              "ade": {
+                "id": "C0008372",
+                "name": "Intrahepatic Cholestasis"
+              },
+              "pubmed": []
+            }
+          ],
+          "mechanism_summary": "Local PersADE mechanism support: ERN1 -> KEGG:hsa05417 -> Drug Induced Liver Injury (direct_DTA). Drug-level mechanism context: 29 PersADE DTA/target/pathway chains retrieved.; PersADE returned 3 high-priority ADE signals for Hepatobiliary disorders. ADMET endpoints support one or more mechanism-chain nodes. PersADE/FAERS population signals support the terminal organ-toxicity phenotype. Baseline fusion drivers: label_DILI_t positive; label_Mito_t positive; PersADE high ROR signal; Direct DTA support via ERN1.",
+          "attribution_explanation": "Hepatobiliary disorders attribution is driven mainly by Drug-induced liver injury (DILI_t) prediction positive. The explanation is constrained to retrieved tool_results and evidence_items.",
+          "attribution_generation_method": "live_llm",
+          "molecular_attribution": [
+            {
+              "driver_type": "admet_endpoint",
+              "driver": "Drug-induced liver injury (DILI_t) prediction positive",
+              "contribution_role": "probability_driver",
+              "mechanistic_role": "Computational model predicts direct hepatotoxicity liability",
+              "direction": "increase",
+              "confidence": 0.6,
+              "evidence_refs": [
+                {
+                  "tool_name": "admetsar_predict",
+                  "field": "tool_results.admetsar_predict.admet_profile",
+                  "summary": "label_DILI_t=1, mechanism_group=hepatotoxicity"
+                }
+              ],
+              "limitations": "admetSAR3 model probability contribution 0.06; limited by model applicability domain."
+            }
+          ],
+          "attribution_limitations": [
+            "Live LLM returned a bare driver object; local code wrapped it as molecular_attribution.",
+            "No explicit SMARTS-level toxicophore match was available.",
+            "No GNN attention attribution was available in Stage 1 tool_results.",
+            "No SHAP atom/feature attribution was available in Stage 1 tool_results."
+          ]
+        },
+        "evidence": [
+          {
+            "source": "PersAgent DrugBank/PersADE",
+            "tier": 2,
+            "ref": "PersAgent-local; 2026; Drug identity and pharmacology resolved locally."
+          },
+          {
+            "source": "PersAgent admetSAR3",
+            "tier": 3,
+            "ref": "PersAgent-local; 2026; ADMET endpoints retrieved through PersAgent."
+          },
+          {
+            "source": "PersADE/FAERS signals",
+            "tier": 1,
+            "ref": "PersAgent-local; 2026; Known ADE spectrum retrieved through PersAgent."
+          }
+        ]
+      },
+      {
+        "soc": "Cardiac disorders",
+        "baseline_risk_level": "high",
+        "baseline_probability": 0.78,
+        "uncertainty": 0.26,
+        "ctcae_grade_predicted": 4,
+        "attribution": {
+          "structural": [],
+          "property": [
+            {
+              "feature": "MW",
+              "value": 645.319,
+              "contribution": 0.05
+            },
+            {
+              "feature": "HBA",
+              "value": 4.0,
+              "contribution": 0.08
+            },
+            {
+              "feature": "HBD",
+              "value": 0.0,
+              "contribution": 0.08
+            },
+            {
+              "feature": "nRot",
+              "value": 11.0,
+              "contribution": 0.08
+            },
+            {
+              "feature": "TPSA",
+              "value": 42.68,
+              "contribution": 0.05
+            },
+            {
+              "feature": "SlogP",
+              "value": 6.9362,
+              "contribution": 0.08
+            },
+            {
+              "feature": "nRing",
+              "value": 3.0,
+              "contribution": 0.08
+            },
+            {
+              "feature": "nAtom",
+              "value": 31.0,
+              "contribution": 0.08
+            },
+            {
+              "feature": "nHet",
+              "value": 6.0,
+              "contribution": 0.08
+            },
+            {
+              "feature": "QED",
+              "value": 0.167647246,
+              "contribution": 0.05
+            },
+            {
+              "feature": "label_hERG_1_10",
+              "value": 1.0,
+              "contribution": 0.08
+            },
+            {
+              "feature": "label_hERG_1",
+              "value": 1.0,
+              "contribution": 0.08
+            },
+            {
+              "feature": "label_hERG_10",
+              "value": 1.0,
+              "contribution": 0.08
+            },
+            {
+              "feature": "label_hERG_10_30",
+              "value": 1.0,
+              "contribution": 0.08
+            },
+            {
+              "feature": "label_hERG_30",
+              "value": 1.0,
+              "contribution": 0.08
+            }
+          ],
+          "admet_endpoint": [
+            {
+              "endpoint": "label_hERG_1_10",
+              "value": "1",
+              "endpoint_type": "numeric",
+              "mechanism_group": "hERG/QT",
+              "soc": "Cardiac disorders",
+              "evidence_role": "model_feature"
+            },
+            {
+              "endpoint": "label_hERG_1",
+              "value": "1",
+              "endpoint_type": "numeric",
+              "mechanism_group": "hERG/QT",
+              "soc": "Cardiac disorders",
+              "evidence_role": "model_feature"
+            },
+            {
+              "endpoint": "label_hERG_10",
+              "value": "1",
+              "endpoint_type": "numeric",
+              "mechanism_group": "hERG/QT",
+              "soc": "Cardiac disorders",
+              "evidence_role": "model_feature"
+            },
+            {
+              "endpoint": "label_hERG_10_30",
+              "value": "1",
+              "endpoint_type": "numeric",
+              "mechanism_group": "hERG/QT",
+              "soc": "Cardiac disorders",
+              "evidence_role": "model_feature"
+            },
+            {
+              "endpoint": "label_hERG_30",
+              "value": "1",
+              "endpoint_type": "numeric",
+              "mechanism_group": "hERG/QT",
+              "soc": "Cardiac disorders",
+              "evidence_role": "model_feature"
+            }
+          ],
+          "target_pathway": [
+            {
+              "source": "PersADE DTA/DTI/AT/Pathway",
+              "evidence_type": "direct_DTA",
+              "target": {
+                "id": "O76082",
+                "gene": "SLC22A5",
+                "protein": "Organic cation/carnitine transporter 2 (High-affinity sodium-dependent carnitine cotransporter) (Solute carrier family 22 member 5)"
+              },
+              "pathway": {
+                "id": "KEGG:hsa05231",
+                "name": "KEGG:hsa05231"
+              },
+              "ade": {
+                "id": "C0007193",
+                "name": "Cardiomyopathy Dilated"
+              },
+              "pubmed": [
+                "21641380"
+              ]
+            },
+            {
+              "source": "PersADE DTA/DTI/AT/Pathway",
+              "evidence_type": "direct_DTA",
+              "target": {
+                "id": "O76082",
+                "gene": "SLC22A5",
+                "protein": "Organic cation/carnitine transporter 2 (High-affinity sodium-dependent carnitine cotransporter) (Solute carrier family 22 member 5)"
+              },
+              "pathway": {
+                "id": "KEGG:hsa05231",
+                "name": "KEGG:hsa05231"
+              },
+              "ade": {
+                "id": "C0027059",
+                "name": "Inflammation Of Heart Muscle"
+              },
+              "pubmed": [
+                "21641380"
+              ]
+            },
+            {
+              "source": "PersADE DTA/DTI/AT/Pathway",
+              "evidence_type": "direct_DTA",
+              "target": {
+                "id": "P00533",
+                "gene": "EGFR",
+                "protein": "Epidermal growth factor receptor (EC 2.7.10.1) (Proto-oncogene c-ErbB-1) (Receptor tyrosine-protein kinase erbB-1)"
+              },
+              "pathway": {
+                "id": "KEGG:hsa04010",
+                "name": "KEGG:hsa04010"
+              },
+              "ade": {
+                "id": "C0007193",
+                "name": "Cardiomyopathy Dilated"
+              },
+              "pubmed": []
+            },
+            {
+              "source": "PersADE DTA/DTI/AT/Pathway",
+              "evidence_type": "direct_DTA",
+              "target": {
+                "id": "P00734",
+                "gene": "F2",
+                "protein": "Prothrombin (EC 3.4.21.5) (Coagulation factor II) [Cleaved into: Activation peptide fragment 1; Activation peptide fragment 2; Thrombin light chain; Thrombin heavy chain]"
+              },
+              "pathway": {
+                "id": "KEGG:hsa04080",
+                "name": "KEGG:hsa04080"
+              },
+              "ade": {
+                "id": "C0027051",
+                "name": "Ami"
+              },
+              "pubmed": []
+            },
+            {
+              "source": "PersADE DTA/DTI/AT/Pathway",
+              "evidence_type": "direct_DTA",
+              "target": {
+                "id": "P01019",
+                "gene": "AGT",
+                "protein": "Angiotensinogen (Serpin A8) [Cleaved into: Angiotensin-1 (Angiotensin 1-10) (Angiotensin I) (Ang I); Angiotensin-2 (Angiotensin 1-8) (Angiotensin II) (Ang II); Angiotensin-3 (Angiotensin 2-8) (Angiotensin III) (Ang III) (Des-Asp[1]-angiotensin II); Angiotensin-4 (Angiotensin 3-8) (Angiotensin IV) (Ang IV); Angiotensin 1-9; Angiotensin 1-7; Angiotensin 1-5; Angiotensin 1-4]"
+              },
+              "pathway": {
+                "id": "KEGG:hsa04081",
+                "name": "KEGG:hsa04081"
+              },
+              "ade": {
+                "id": "C0007222",
+                "name": "Cardiovascular Disease"
+              },
+              "pubmed": []
+            }
+          ],
+          "mechanism_summary": "Local PersADE mechanism support: SLC22A5 -> KEGG:hsa05231 -> Cardiomyopathy Dilated (direct_DTA). Drug-level mechanism context: 29 PersADE DTA/target/pathway chains retrieved.; PersADE returned 11 high-priority ADE signals for Cardiac disorders. ADMET endpoints support one or more mechanism-chain nodes. PersADE/FAERS population signals support the terminal organ-toxicity phenotype. Baseline fusion drivers: label_hERG_1_10 positive; label_hERG_1 positive; label_hERG_10 positive; label_hERG_10_30 positive.",
+          "attribution_explanation": "Cardiac disorders attribution is driven mainly by hERG inhibition (all concentration thresholds positive). The explanation is constrained to retrieved tool_results and evidence_items.",
+          "attribution_generation_method": "live_llm",
+          "molecular_attribution": [
+            {
+              "driver_type": "admet_endpoint",
+              "driver": "hERG inhibition (all concentration thresholds positive)",
+              "contribution_role": "probability_driver",
+              "mechanistic_role": "Blockade of the hERG potassium channel prolongs cardiac repolarization, increasing risk of QT prolongation and life-threatening arrhythmias.",
+              "direction": "increase",
+              "confidence": 0.8,
+              "evidence_refs": [
+                {
+                  "tool_name": "admetsar_predict",
+                  "field": "tool_results.admetsar_predict.admet_profile",
+                  "summary": "label_hERG_1_10=1, label_hERG_1=1, label_hERG_10=1, label_hERG_10_30=1, label_hERG_30=1 - all positive for hERG inhibition."
+                }
+              ],
+              "limitations": "In silico predictions; not direct electrophysiology data."
+            }
+          ],
+          "attribution_limitations": [
+            "Live LLM returned a bare driver object; local code wrapped it as molecular_attribution.",
+            "No explicit SMARTS-level toxicophore match was available.",
+            "No GNN attention attribution was available in Stage 1 tool_results.",
+            "No SHAP atom/feature attribution was available in Stage 1 tool_results."
+          ]
+        },
+        "evidence": [
+          {
+            "source": "PersAgent DrugBank/PersADE",
+            "tier": 2,
+            "ref": "PersAgent-local; 2026; Drug identity and pharmacology resolved locally."
+          },
+          {
+            "source": "PersAgent admetSAR3",
+            "tier": 3,
+            "ref": "PersAgent-local; 2026; ADMET endpoints retrieved through PersAgent."
+          },
+          {
+            "source": "PersADE/FAERS signals",
+            "tier": 1,
+            "ref": "PersAgent-local; 2026; Known ADE spectrum retrieved through PersAgent."
+          }
+        ]
+      },
+      {
+        "soc": "Renal and urinary disorders",
+        "baseline_risk_level": null,
+        "baseline_probability": null,
+        "uncertainty": null,
+        "ctcae_grade_predicted": null,
+        "attribution": {
+          "structural": [],
+          "property": [],
+          "admet_endpoint": [],
+          "target_pathway": [],
+          "mechanism_summary": null,
+          "attribution_explanation": null,
+          "attribution_generation_method": "deterministic_fallback",
+          "molecular_attribution": [],
+          "attribution_limitations": []
+        },
+        "evidence": []
+      },
+      {
+        "soc": "Blood and lymphatic system disorders",
+        "baseline_risk_level": null,
+        "baseline_probability": null,
+        "uncertainty": null,
+        "ctcae_grade_predicted": null,
+        "attribution": {
+          "structural": [],
+          "property": [],
+          "admet_endpoint": [],
+          "target_pathway": [],
+          "mechanism_summary": null,
+          "attribution_explanation": null,
+          "attribution_generation_method": "deterministic_fallback",
+          "molecular_attribution": [],
+          "attribution_limitations": []
+        },
+        "evidence": []
+      },
+      {
+        "soc": "Immune system disorders",
+        "baseline_risk_level": null,
+        "baseline_probability": null,
+        "uncertainty": null,
+        "ctcae_grade_predicted": null,
+        "attribution": {
+          "structural": [],
+          "property": [],
+          "admet_endpoint": [],
+          "target_pathway": [],
+          "mechanism_summary": null,
+          "attribution_explanation": null,
+          "attribution_generation_method": "deterministic_fallback",
+          "molecular_attribution": [],
+          "attribution_limitations": []
+        },
+        "evidence": []
+      },
+      {
+        "soc": "Skin and subcutaneous tissue disorders",
+        "baseline_risk_level": null,
+        "baseline_probability": null,
+        "uncertainty": null,
+        "ctcae_grade_predicted": null,
+        "attribution": {
+          "structural": [],
+          "property": [],
+          "admet_endpoint": [],
+          "target_pathway": [],
+          "mechanism_summary": null,
+          "attribution_explanation": null,
+          "attribution_generation_method": "deterministic_fallback",
+          "molecular_attribution": [],
+          "attribution_limitations": []
+        },
+        "evidence": []
+      },
+      {
+        "soc": "Nervous system disorders",
+        "baseline_risk_level": null,
+        "baseline_probability": null,
+        "uncertainty": null,
+        "ctcae_grade_predicted": null,
+        "attribution": {
+          "structural": [],
+          "property": [],
+          "admet_endpoint": [],
+          "target_pathway": [],
+          "mechanism_summary": null,
+          "attribution_explanation": null,
+          "attribution_generation_method": "deterministic_fallback",
+          "molecular_attribution": [],
+          "attribution_limitations": []
+        },
+        "evidence": []
+      },
+      {
+        "soc": "Gastrointestinal disorders",
+        "baseline_risk_level": null,
+        "baseline_probability": null,
+        "uncertainty": null,
+        "ctcae_grade_predicted": null,
+        "attribution": {
+          "structural": [],
+          "property": [],
+          "admet_endpoint": [],
+          "target_pathway": [],
+          "mechanism_summary": null,
+          "attribution_explanation": null,
+          "attribution_generation_method": "deterministic_fallback",
+          "molecular_attribution": [],
+          "attribution_limitations": []
+        },
+        "evidence": []
+      }
+    ]
+  },
+  "personalized_toxicity_report": {
+    "drug": {
+      "name": "Amiodarone",
+      "smiles": "CCCCC1=C(C(=O)C2=CC(I)=C(OCCN(CC)CC)C(I)=C2)C2=C(O1)C=CC=C2",
+      "drugbank_id": "DB01118"
+    },
+    "patient_id": "demo-amiodarone-001",
+    "personalized_toxicity": [
+      {
+        "soc": "Hepatobiliary disorders",
+        "baseline": {
+          "risk_level": "moderate",
+          "probability": 0.58
+        },
+        "personalized_risk_level": "high",
+        "personalized_probability": 0.689,
+        "risk_shift": 0.109,
+        "ctcae_grade_predicted": 4,
+        "patient_attribution": [
+          {
+            "factor_type": "comedication",
+            "factor": "Amiodarone + Atorvastatin",
+            "direction": "up",
+            "magnitude": 1.1,
+            "rule_id": "DDI-AMIODARONE-ATORVASTATIN",
+            "evidence": {
+              "source": "Local DDI rules",
+              "tier": 2,
+              "grade": "moderate"
+            },
+            "affected_node": "metabolism",
+            "effect": "Amiodarone + Atorvastatin increases exposure by modifying metabolic clearance or activation."
+          },
+          {
+            "factor_type": "comedication",
+            "factor": "Amiodarone + Metoprolol",
+            "direction": "up",
+            "magnitude": 1.08,
+            "rule_id": "DDI-AMIODARONE-METOPROLOL",
+            "evidence": {
+              "source": "Local DDI rules",
+              "tier": 2,
+              "grade": "moderate"
+            },
+            "affected_node": "metabolism",
+            "effect": "Amiodarone + Metoprolol increases exposure by modifying metabolic clearance or activation."
+          }
+        ],
+        "mechanism_chain_modifiers": [
+          {
+            "chain_id": "amiodarone_liver_ERN1",
+            "affected_node": "metabolism",
+            "factor": "Amiodarone + Atorvastatin",
+            "direction": "increase",
+            "magnitude": 1.1,
+            "effect": "Amiodarone + Atorvastatin increases exposure by modifying metabolic clearance or activation.",
+            "rule_id": "DDI-AMIODARONE-ATORVASTATIN",
+            "evidence": {
+              "source": "Local DDI rules",
+              "tier": 2,
+              "ref": "moderate"
+            }
+          },
+          {
+            "chain_id": "amiodarone_liver_ERN1",
+            "affected_node": "metabolism",
+            "factor": "Amiodarone + Metoprolol",
+            "direction": "increase",
+            "magnitude": 1.08,
+            "effect": "Amiodarone + Metoprolol increases exposure by modifying metabolic clearance or activation.",
+            "rule_id": "DDI-AMIODARONE-METOPROLOL",
+            "evidence": {
+              "source": "Local DDI rules",
+              "tier": 2,
+              "ref": "moderate"
+            }
+          }
+        ],
+        "clinical_recommendation": {
+          "action": "monitor",
+          "text": "High Hepatobiliary disorders risk; arrange close monitoring and specialist review before continuation.",
+          "ctcae_aligned": true
+        }
+      },
+      {
+        "soc": "Cardiac disorders",
+        "baseline": {
+          "risk_level": "high",
+          "probability": 0.78
+        },
+        "personalized_risk_level": "high",
+        "personalized_probability": 0.78,
+        "risk_shift": 0.0,
+        "ctcae_grade_predicted": 4,
+        "patient_attribution": [],
+        "mechanism_chain_modifiers": [],
+        "clinical_recommendation": {
+          "action": "monitor",
+          "text": "High Cardiac disorders risk; arrange close monitoring and specialist review before continuation.",
+          "ctcae_aligned": true
+        }
+      },
+      {
+        "soc": "Renal and urinary disorders",
+        "baseline": {
+          "risk_level": null,
+          "probability": null
+        },
+        "personalized_risk_level": null,
+        "personalized_probability": null,
+        "risk_shift": null,
+        "ctcae_grade_predicted": null,
+        "patient_attribution": [],
+        "mechanism_chain_modifiers": [],
+        "clinical_recommendation": null
+      },
+      {
+        "soc": "Blood and lymphatic system disorders",
+        "baseline": {
+          "risk_level": null,
+          "probability": null
+        },
+        "personalized_risk_level": null,
+        "personalized_probability": null,
+        "risk_shift": null,
+        "ctcae_grade_predicted": null,
+        "patient_attribution": [],
+        "mechanism_chain_modifiers": [],
+        "clinical_recommendation": null
+      },
+      {
+        "soc": "Immune system disorders",
+        "baseline": {
+          "risk_level": null,
+          "probability": null
+        },
+        "personalized_risk_level": null,
+        "personalized_probability": null,
+        "risk_shift": null,
+        "ctcae_grade_predicted": null,
+        "patient_attribution": [],
+        "mechanism_chain_modifiers": [],
+        "clinical_recommendation": null
+      },
+      {
+        "soc": "Skin and subcutaneous tissue disorders",
+        "baseline": {
+          "risk_level": null,
+          "probability": null
+        },
+        "personalized_risk_level": null,
+        "personalized_probability": null,
+        "risk_shift": null,
+        "ctcae_grade_predicted": null,
+        "patient_attribution": [],
+        "mechanism_chain_modifiers": [],
+        "clinical_recommendation": null
+      },
+      {
+        "soc": "Nervous system disorders",
+        "baseline": {
+          "risk_level": null,
+          "probability": null
+        },
+        "personalized_risk_level": null,
+        "personalized_probability": null,
+        "risk_shift": null,
+        "ctcae_grade_predicted": null,
+        "patient_attribution": [],
+        "mechanism_chain_modifiers": [],
+        "clinical_recommendation": null
+      },
+      {
+        "soc": "Gastrointestinal disorders",
+        "baseline": {
+          "risk_level": null,
+          "probability": null
+        },
+        "personalized_risk_level": null,
+        "personalized_probability": null,
+        "risk_shift": null,
+        "ctcae_grade_predicted": null,
+        "patient_attribution": [],
+        "mechanism_chain_modifiers": [],
+        "clinical_recommendation": null
+      }
+    ]
+  },
+  "verification_status": "PASS",
+  "verification_report": {
+    "status": "PASS",
+    "issues": [],
+    "checked_at": "2026-06-27T10:38:18.361448Z",
+    "summary": "All safety verifier layers passed."
+  },
+  "final_decision": {
+    "status": "PASS",
+    "message": "Report passed format, content, safety, and calibration checks."
+  }
+}

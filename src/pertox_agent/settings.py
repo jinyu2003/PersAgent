@@ -18,7 +18,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 LLM_CONFIG_PATH = PROJECT_ROOT / "configs" / "llm.json"
 
 
-def _load_dotenv(path: str = ".env") -> None:
+def _load_dotenv(path: str | Path = ".env") -> None:
     """Load simple KEY=VALUE pairs without adding a runtime dependency."""
     env_path = Path(path)
     if not env_path.exists():
@@ -167,6 +167,7 @@ def _provider_base_url(provider: str, llm_config: dict[str, Any]) -> str | None:
 
 def get_model_config() -> ModelConfig:
     _load_dotenv()
+    _load_dotenv(PROJECT_ROOT / ".env")
     llm_config = _load_llm_config()
     models = _section(llm_config, "models")
     generation = _section(llm_config, "generation")

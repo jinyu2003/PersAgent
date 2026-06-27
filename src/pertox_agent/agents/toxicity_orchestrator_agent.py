@@ -11,7 +11,7 @@ from typing import Any, Dict, List, Optional
 from pertox_agent.settings import get_model_config
 from pertox_agent.tools.clinical_input.normalizer import ClinicalInputNormalizer
 from pertox_agent.tools.clinical_input.semantic_extractor import LLMJsonExtractor
-from pertox_agent.formatting import to_plain_dict
+from pertox_agent.reporting.formatter import to_plain_dict
 from pertox_agent.schemas import (
     BaselineRisk,
     ClinicalRecommendationOutput,
@@ -81,13 +81,6 @@ _MOLECULAR_DRIVER_TYPES = {
 
 
 class ToxicityOrchestratorAgent:
-    system_prompt = (
-        "You are the Toxicity Orchestrator Agent. Parse inputs, decide what knowledge is needed, "
-        "perform two-stage toxicity reasoning, synthesize reports, and revise "
-        "drafts using safety verifier feedback. All external knowledge must come from "
-        "the Knowledge Retrieval Agent."
-    )
-
     def __init__(self, llm_json_extractor: Optional[LLMJsonExtractor] = None) -> None:
         self.config = get_model_config()
         self.toxicity_chain_builder = ToxicityChainBuilder()
@@ -335,7 +328,6 @@ class ToxicityOrchestratorAgent:
                         target_pathway=row["target_pathway_attribution"],
                         mechanism_summary=row["mechanism_text"],
                         attribution_explanation=molecular_attribution.get("attribution_explanation"),
-                        attribution_narrative=molecular_attribution.get("attribution_narrative"),
                         attribution_generation_method=molecular_attribution.get(
                             "attribution_generation_method",
                             "deterministic_fallback",
@@ -506,8 +498,8 @@ class ToxicityOrchestratorAgent:
         llm_payload = self._generate_molecular_attribution_with_llm(context)
         normalized = self._normalize_molecular_attribution(llm_payload, context)
         if normalized is not None:
-            return self._with_attribution_narrative(context, normalized)
-        return self._with_attribution_narrative(context, self._deterministic_molecular_attribution(context))
+            return normalized
+        return self._deterministic_molecular_attribution(context)
 
     def _resolve_molecular_attributions(self, contexts: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         if not contexts:
@@ -581,113 +573,6 @@ class ToxicityOrchestratorAgent:
             return None
         except Exception:
             return None
-
-    def _with_attribution_narrative(
-        self,
-        context: Dict[str, Any],
-        attribution: Dict[str, Any],
-    ) -> Dict[str, Any]:
-        if attribution.get("attribution_narrative"):
-            return attribution
-        narrative = self._generate_attribution_narrative_with_llm(context, attribution)
-        if not narrative:
-            return attribution
-        enriched = dict(attribution)
-        enriched["attribution_narrative"] = narrative
-        return enriched
-
-    def _generate_attribution_narrative_with_llm(
-        self,
-        context: Dict[str, Any],
-        attribution: Dict[str, Any],
-    ) -> Optional[str]:
-        narrative_context = self._attribution_narrative_context(context, attribution)
-        schema = self._attribution_narrative_schema()
-        if self._llm_json_extractor is not None:
-            payload = self._coerce_llm_payload(
-                self._llm_json_extractor("attribution_narrative", narrative_context, schema)
-            )
-            return self._string_value((payload or {}).get("attribution_narrative"))
-        if not self.config.use_live_llm or not self.config.api_key:
-            return None
-        try:
-            for _ in range(2):
-                payload = self._call_live_llm_attribution_narrative(
-                    context=narrative_context,
-                    schema=schema,
-                )
-                narrative = self._string_value((payload or {}).get("attribution_narrative"))
-                if narrative:
-                    return narrative
-            return None
-        except Exception:
-            return None
-
-    def _attribution_narrative_context(
-        self,
-        context: Dict[str, Any],
-        attribution: Dict[str, Any],
-    ) -> Dict[str, Any]:
-        return {
-            "drug": context.get("drug", {}),
-            "organ_system": context.get("organ_system"),
-            "soc": context.get("soc"),
-            "baseline_risk": context.get("baseline_risk", {}),
-            "probability_audit": context.get("probability_audit", {}),
-            "method_availability": context.get("method_availability", {}),
-            "attribution_explanation": attribution.get("attribution_explanation"),
-            "molecular_attribution": attribution.get("molecular_attribution", []),
-            "attribution_limitations": attribution.get("attribution_limitations", []),
-        }
-
-    def _attribution_narrative_schema(self) -> Dict[str, Any]:
-        return {
-            "attribution_narrative": (
-                "one human-readable paragraph, 120-220 words, explaining the existing attribution; "
-                "do not add, remove, reorder, or contradict molecular_attribution drivers; mention "
-                "main probability drivers, supporting context, and key limitations"
-            )
-        }
-
-    def _call_live_llm_attribution_narrative(
-        self,
-        *,
-        context: Dict[str, Any],
-        schema: Dict[str, Any],
-    ) -> Optional[Dict[str, Any]]:
-        try:
-            from openai import OpenAI
-        except ImportError:
-            return None
-
-        client_kwargs: Dict[str, Any] = {"api_key": self.config.api_key}
-        if self.config.base_url:
-            client_kwargs["base_url"] = self.config.base_url
-        client = OpenAI(**client_kwargs)
-
-        completion = client.chat.completions.create(
-            model=self.config.brain_model,
-            temperature=self.config.temperature,
-            max_tokens=min(self.config.max_tokens, 900),
-            response_format={"type": "json_object"},
-            messages=[
-                {
-                    "role": "system",
-                    "content": (
-                        "You write a human-readable narrative for an already-computed molecular "
-                        "attribution. Do not change the attribution result, do not introduce new "
-                        "drivers, and do not invent evidence. Use only the supplied attribution, "
-                        "probability_audit, and limitations. Return JSON only."
-                    ),
-                },
-                {
-                    "role": "user",
-                    "content": json.dumps({"schema": schema, "context": context}, ensure_ascii=False, default=str),
-                },
-            ],
-        )
-        content = completion.choices[0].message.content or "{}"
-        return self._coerce_llm_payload(self._json_object_from_text(content))
 
     def _call_live_llm_molecular_attribution(
         self,
@@ -1336,6 +1221,10 @@ class ToxicityOrchestratorAgent:
         )
         baseline_organ_risk = self._build_baseline_organ_risk(evidence_package.tool_results)
         attribution_explanations = self._stage1_attribution_explanations(universal_report)
+        stage1_card_summaries = self._build_stage1_card_summaries(
+            universal_report=universal_report,
+            baseline_organ_risk=baseline_organ_risk,
+        )
         return {
             "metadata": {
                 "system": "PersAgent",
@@ -1356,6 +1245,7 @@ class ToxicityOrchestratorAgent:
             "persade_contextual_evidence": persade_contextual_evidence,
             "baseline_organ_risk": baseline_organ_risk,
             "attribution_explanations": attribution_explanations,
+            "stage1_card_summaries": stage1_card_summaries,
             "evidence_package": evidence_package,
             "universal_report": universal_report,
             "personalized_report": personalized_report,
@@ -1377,6 +1267,205 @@ class ToxicityOrchestratorAgent:
             },
         }
 
+    def _build_stage1_card_summaries(
+        self,
+        *,
+        universal_report: UniversalToxicityReport,
+        baseline_organ_risk: List[Dict[str, Any]],
+    ) -> Dict[str, Dict[str, Any]]:
+        if not self.config.use_live_llm or not self.config.api_key:
+            return {}
+        baseline_by_soc = {item.get("soc"): item for item in baseline_organ_risk if isinstance(item, dict)}
+        summaries: Dict[str, Dict[str, Any]] = {}
+        for item in universal_report.general_toxicity:
+            if item.baseline_probability is None:
+                continue
+            context = self._stage1_card_summary_context(item, baseline_by_soc.get(item.soc, {}))
+            try:
+                payload = self._call_live_llm_stage1_card_summary(context=context)
+            except Exception:
+                payload = None
+            summary = self._normalize_stage1_card_summary(payload)
+            if summary:
+                summaries[item.soc] = summary
+        return summaries
+
+    def _stage1_card_summary_context(
+        self,
+        item: GeneralToxicityItem,
+        baseline_audit: Dict[str, Any],
+    ) -> Dict[str, Any]:
+        attribution = item.attribution
+        chains = []
+        for chain in attribution.mechanism_chains[:2]:
+            chains.append(
+                {
+                    "chain_id": chain.chain_id,
+                    "chain_score": chain.chain_score,
+                    "chain_confidence": chain.chain_confidence,
+                    "nodes": [
+                        {
+                            "order": node.order,
+                            "node_type": node.node_type,
+                            "label": node.label,
+                            "role": node.role,
+                            "confidence": node.confidence,
+                            "evidence_refs": [
+                                {
+                                    "source": evidence.source,
+                                    "tier": evidence.tier,
+                                    "ref": evidence.ref,
+                                }
+                                for evidence in node.evidence[:3]
+                            ],
+                        }
+                        for node in chain.nodes[:8]
+                    ],
+                }
+            )
+        return {
+            "task": "summarize_stage1_universal_toxicity_attribution_card",
+            "soc": item.soc,
+            "risk": {
+                "baseline_risk_level": item.baseline_risk_level,
+                "baseline_probability": item.baseline_probability,
+                "uncertainty": item.uncertainty,
+            },
+            "probability_audit": {
+                "formula": "baseline_probability = prior + capped ADMET support + capped ADE signal support + capped mechanism support",
+                "main_drivers": baseline_audit.get("main_drivers", []),
+                "evidence_summary": baseline_audit.get("evidence_summary", [])[:8],
+            },
+            "mechanism_chain": chains,
+            "molecular_attribution": attribution.molecular_attribution[:8],
+            "uncertainty_drivers": attribution.attribution_limitations,
+            "constraints": {
+                "stage": "Stage 1 universal toxicity only",
+                "do_not_change_probability": True,
+                "do_not_add_evidence": True,
+                "do_not_make_clinical_recommendations": True,
+                "do_not_mention_patient_specific_factors": True,
+                "node_impact_rule": (
+                    "For each mechanism_chain node, classify its probability impact as "
+                    "direct_probability_support, mechanistic_context_only, or uncertainty_or_gap. "
+                    "Use direct_probability_support only when the node is directly supported by "
+                    "probability_audit.main_drivers or probability_audit.evidence_summary."
+                ),
+            },
+        }
+
+    def _call_live_llm_stage1_card_summary(self, *, context: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        if self._llm_json_extractor is not None:
+            return self._coerce_llm_payload(
+                self._llm_json_extractor("stage1_card_summary", context, self._stage1_card_summary_schema())
+            )
+        try:
+            from openai import OpenAI
+        except ImportError:
+            return None
+
+        client_kwargs: Dict[str, Any] = {"api_key": self.config.api_key}
+        if self.config.base_url:
+            client_kwargs["base_url"] = self.config.base_url
+        client = OpenAI(**client_kwargs)
+        completion = client.chat.completions.create(
+            model=self.config.brain_model,
+            temperature=self.config.temperature,
+            max_tokens=min(self.config.max_tokens, 1200),
+            response_format={"type": "json_object"},
+            messages=[
+                {
+                    "role": "system",
+                    "content": (
+                        "You render concise summaries for an already-computed Stage 1 universal "
+                        "toxicity attribution card. Use only the supplied context. Do not change "
+                        "probabilities, uncertainty, support values, SOC names, targets, endpoints, "
+                        "or references. Do not add patient-specific factors or clinical advice. "
+                        "For node-level impact notes, explain whether each node directly supports "
+                        "probability, provides mechanistic context, or represents an uncertainty gap. "
+                        "Return one node_impact_notes item for every node in the first supplied "
+                        "mechanism_chain, using the exact node_type and label from the context. "
+                        "Do not claim probability support unless the node is present in the supplied "
+                        "probability audit. "
+                        "Return JSON only."
+                    ),
+                },
+                {
+                    "role": "user",
+                    "content": json.dumps(
+                        {"schema": self._stage1_card_summary_schema(), "context": context},
+                        ensure_ascii=False,
+                        default=str,
+                    ),
+                },
+            ],
+        )
+        content = completion.choices[0].message.content or "{}"
+        return self._coerce_llm_payload(self._json_object_from_text(content))
+
+    def _stage1_card_summary_schema(self) -> Dict[str, str]:
+        return {
+            "judgement": "1-3 sentences explaining why the supplied baseline_probability has the supplied risk level; mention that support is evidence-fused if multiple drivers are present.",
+            "mechanism_summary": "1-2 sentences summarizing the supplied mechanism chain without adding new targets, pathways, or endpoints.",
+            "uncertainty_summary": "1-2 sentences explaining why the supplied uncertainty remains, using only supplied uncertainty_drivers.",
+            "node_impact_notes": (
+                "array of objects, one for every node in the first supplied mechanism_chain.nodes list. "
+                "Each object must reuse the exact node_type and label from the input node, and has "
+                "impact_type and impact_note. impact_type must be one of "
+                "direct_probability_support, mechanistic_context_only, uncertainty_or_gap. impact_note "
+                "is 1-2 sentences explaining how retrieved knowledge at this node affects or does not "
+                "affect baseline_probability."
+            ),
+        }
+
+    def _normalize_stage1_card_summary(self, payload: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+        if not payload:
+            return {}
+        normalized: Dict[str, Any] = {}
+        for key in ("judgement", "mechanism_summary", "uncertainty_summary"):
+            value = self._string_value(payload.get(key))
+            if value:
+                normalized[key] = value
+        notes = self._normalize_node_impact_notes(payload.get("node_impact_notes"))
+        if notes:
+            normalized["node_impact_notes"] = notes
+        return normalized
+
+    def _normalize_node_impact_notes(self, value: Any) -> List[Dict[str, str]]:
+        if not isinstance(value, list):
+            return []
+        allowed_types = {
+            "direct_probability_support",
+            "mechanistic_context_only",
+            "uncertainty_or_gap",
+        }
+        notes: List[Dict[str, str]] = []
+        seen = set()
+        for item in value:
+            if not isinstance(item, Mapping):
+                continue
+            node_type = self._string_value(item.get("node_type"))
+            label = self._string_value(item.get("label"))
+            impact_note = self._string_value(item.get("impact_note"))
+            if not node_type or not label or not impact_note:
+                continue
+            impact_type = self._string_value(item.get("impact_type")) or "mechanistic_context_only"
+            if impact_type not in allowed_types:
+                impact_type = "mechanistic_context_only"
+            key = (node_type.lower(), label.lower())
+            if key in seen:
+                continue
+            seen.add(key)
+            notes.append(
+                {
+                    "node_type": node_type,
+                    "label": label,
+                    "impact_type": impact_type,
+                    "impact_note": impact_note,
+                }
+            )
+        return notes
+
     def _stage1_attribution_explanations(self, universal_report: UniversalToxicityReport) -> List[Dict[str, Any]]:
         rows: List[Dict[str, Any]] = []
         for item in universal_report.general_toxicity:
@@ -1387,7 +1476,6 @@ class ToxicityOrchestratorAgent:
                     "baseline_risk_level": item.baseline_risk_level,
                     "baseline_probability": item.baseline_probability,
                     "attribution_explanation": attribution.attribution_explanation,
-                    "attribution_narrative": attribution.attribution_narrative,
                     "attribution_generation_method": attribution.attribution_generation_method,
                     "molecular_attribution": attribution.molecular_attribution,
                     "attribution_limitations": attribution.attribution_limitations,

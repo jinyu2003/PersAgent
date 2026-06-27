@@ -10,7 +10,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 SRC_ROOT = PROJECT_ROOT / "src"
 sys.path.insert(0, str(SRC_ROOT))
 
-from pertox_agent.graph import build_graph
+from pertox_agent.workflow.graph import build_graph
 from pertox_agent.agents.toxicity_orchestrator_agent import ToxicityOrchestratorAgent
 from pertox_agent.tools.clinical_input.drug_parser import drug_info_kwargs_from_input, normalize_drug_input
 from pertox_agent.agents.knowledge_retrieval_agent import KnowledgeRetrievalAgent
@@ -171,17 +171,8 @@ def test_toxicity_orchestrator_agent_uses_llm_patient_parser() -> None:
 
 def test_toxicity_orchestrator_agent_adds_stage1_attribution_explanation() -> None:
     captured_context = {}
-    captured_narrative_context = {}
 
     def fake_extractor(kind, raw, schema):
-        if kind == "attribution_narrative" and raw.get("soc") == "Hepatobiliary disorders":
-            captured_narrative_context.update(raw)
-            return {
-                "attribution_narrative": (
-                    "The liver row is mainly supported by the existing DILI attribution result, "
-                    "with the retrieved endpoint treated as the probability-driving evidence."
-                )
-            }
         if kind != "molecular_attribution" or raw.get("soc") != "Hepatobiliary disorders":
             return None
         captured_context.update(raw)
@@ -255,12 +246,10 @@ def test_toxicity_orchestrator_agent_adds_stage1_attribution_explanation() -> No
     liver = next(item for item in report.general_toxicity if item.soc == "Hepatobiliary disorders")
     assert liver.attribution.attribution_explanation == "Liver attribution is driven by the retrieved DILI endpoint."
     assert liver.attribution.attribution_generation_method == "live_llm"
-    assert liver.attribution.attribution_narrative.startswith("The liver row is mainly supported")
     assert liver.attribution.molecular_attribution[0]["driver"] == "label_DILI_t=positive"
     assert liver.attribution.molecular_attribution[0]["contribution_role"] == "probability_driver"
     assert "candidate_drivers" not in captured_context
     assert captured_context["tool_results"]["admetsar_predict"]["admet_profile"][0]["endpoint"] == "label_DILI_t"
-    assert captured_narrative_context["molecular_attribution"][0]["driver"] == "label_DILI_t=positive"
 
 
 def test_toxicity_orchestrator_agent_models_only_liver_and_heart() -> None:
@@ -371,12 +360,6 @@ def test_toxicity_orchestrator_agent_models_only_liver_and_heart() -> None:
 
 def test_toxicity_orchestrator_agent_accepts_bare_llm_driver_attribution() -> None:
     def fake_extractor(kind, raw, schema):
-        if kind == "attribution_narrative" and raw.get("soc") == "Hepatobiliary disorders":
-            return {
-                "attribution_narrative": (
-                    "The hepatobiliary attribution is explained from the already selected direct DTA driver."
-                )
-            }
         if kind != "molecular_attribution" or raw.get("soc") != "Hepatobiliary disorders":
             return None
         return {
@@ -437,55 +420,9 @@ def test_toxicity_orchestrator_agent_accepts_bare_llm_driver_attribution() -> No
     liver = next(item for item in report.general_toxicity if item.soc == "Hepatobiliary disorders")
 
     assert liver.attribution.attribution_generation_method == "live_llm"
-    assert liver.attribution.attribution_narrative.startswith("The hepatobiliary attribution")
     assert liver.attribution.molecular_attribution[0]["driver"] == "Direct DTA support via CYP2C9"
     assert liver.attribution.molecular_attribution[0]["contribution_role"] == "probability_driver"
     assert "bare driver object" in liver.attribution.attribution_limitations[0]
-
-
-def test_toxicity_orchestrator_agent_does_not_generate_local_narrative_without_llm() -> None:
-    agent = ToxicityOrchestratorAgent(llm_json_extractor=lambda kind, raw, schema: None)
-    drug = DrugInfo(name="warfarin", drugbank_id="DB00682")
-    patient = PatientInfo(patient_id="p-no-narrative", age=72)
-    evidence = EvidencePackage(
-        query_id="q-no-narrative",
-        query_purpose="universal_toxicity",
-        drug_id="DB00682",
-        patient_id=patient.patient_id,
-        tool_results={
-            "drug_card_lookup": {
-                "canonical_name": "warfarin",
-                "drug_id": "DB00682",
-                "structural_alerts": [],
-                "mechanism_chain": "Drug card retrieved.",
-            },
-            "drugbank_metabolism_query": {"metabolism": {"primary_enzymes": ["CYP2C9"]}},
-            "admetsar_predict": {
-                "admet_profile": [
-                    {
-                        "endpoint": "label_DILI_t",
-                        "value": "positive",
-                        "endpoint_type": "classification",
-                        "soc": "Hepatobiliary disorders",
-                    }
-                ],
-                "structure_profile": {"descriptors": {}, "drug_likeness": {}, "structural_alerts": []},
-                "property_endpoints": [],
-                "organ_impacts": [{"organ_system": "liver", "direction": "increase", "magnitude": 1.08}],
-            },
-            "dti_query": {"targets": []},
-            "mechanism_query": {"mechanism_chain": "No mechanism chains."},
-            "pathway_enrich": {"pathways": []},
-            "persade_drug_profile": {"signals": [], "known_ade_profile": [], "organ_attributions": {}},
-            "mechanism_chains_lookup": {"mechanism_chains": []},
-        },
-    )
-
-    report = agent.build_universal_report(patient, drug, evidence)
-    liver = next(item for item in report.general_toxicity if item.soc == "Hepatobiliary disorders")
-
-    assert liver.attribution.attribution_generation_method == "deterministic_fallback"
-    assert liver.attribution.attribution_narrative is None
 
 
 def main() -> int:
@@ -504,7 +441,6 @@ def main() -> int:
     test_toxicity_orchestrator_agent_adds_stage1_attribution_explanation()
     test_toxicity_orchestrator_agent_models_only_liver_and_heart()
     test_toxicity_orchestrator_agent_accepts_bare_llm_driver_attribution()
-    test_toxicity_orchestrator_agent_does_not_generate_local_narrative_without_llm()
     print("agent runtime smoke tests passed")
     return 0
 

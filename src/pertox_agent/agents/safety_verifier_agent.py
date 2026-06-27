@@ -5,17 +5,11 @@ from __future__ import annotations
 import re
 from typing import Any, Dict, List
 
-from pertox_agent.formatting import to_plain_dict
+from pertox_agent.reporting.formatter import to_plain_dict
 from pertox_agent.schemas import DrugInfo, EvidencePackage, ORGAN_SYSTEMS, PatientInfo, VerificationIssue, VerificationReport
 
 
 class SafetyVerifierAgent:
-    system_prompt = (
-        "You are the Safety Verifier Agent. Independently validate report structure, "
-        "content consistency, deterministic safety redlines, and confidence "
-        "calibration. Do not generate new clinical reasoning."
-    )
-
     def verify(
         self,
         draft_report: Dict[str, Any],

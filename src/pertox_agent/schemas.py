@@ -340,7 +340,6 @@ class ToxicityAttribution(StrictBaseModel):
     target_pathway: List[Dict[str, Any]] = Field(default_factory=list)
     mechanism_summary: Optional[str] = None
     attribution_explanation: Optional[str] = None
-    attribution_narrative: Optional[str] = None
     attribution_generation_method: Literal["live_llm", "deterministic_fallback"] = "deterministic_fallback"
     molecular_attribution: List[Dict[str, Any]] = Field(default_factory=list)
     attribution_limitations: List[str] = Field(default_factory=list)

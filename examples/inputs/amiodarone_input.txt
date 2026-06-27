@@ -1,0 +1,25 @@
+[patient]
+patient_id: demo-amiodarone-001
+age: 72
+sex: male
+weight_kg: 76
+alt_u_l: 92
+ast_u_l: 88
+bilirubin_mg_dl: 1.4
+child_pugh: A
+creatinine_mg_dl: 1.1
+egfr_ml_min: 62
+medical_history: I48 atrial fibrillation; I50 heart failure
+concomitant_medications: atorvastatin; metoprolol
+organ_function.LVEF: 42%
+exposure.route: oral
+exposure.frequency: daily
+pregnancy_status: not_pregnant
+
+[drug]
+name: amiodarone
+drugbank_id: DB01118
+smiles: CCCCC1=C(C(=O)C2=CC(I)=C(OCCN(CC)CC)C(I)=C2)C2=C(O1)C=CC=C2
+dose: 200 mg/day
+route: oral
+frequency: daily

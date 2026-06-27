@@ -21,7 +21,7 @@ sys.path.insert(0, str(SRC_ROOT))
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from pertox_agent.agents.toxicity_orchestrator_agent import ToxicityOrchestratorAgent
-from examples.run_warfarin_demo import build_demo_state
+from examples.run_warfarin_demo import build_warfarin_state
 from pertox_agent.tools.patient_context import indication_resolver, pgx_phenotyper
 from pertox_agent.tools.patient_context.standardizer import PatientProfileStandardizer
 
@@ -38,7 +38,7 @@ def check(condition: bool, label: str) -> None:
 
 def test_standardizer() -> None:
     print("== PatientProfileStandardizer (warfarin demo patient) ==")
-    state = build_demo_state()
+    state = build_warfarin_state()
     orchestrator = ToxicityOrchestratorAgent()
     patient = orchestrator.parse_patient_info(state["raw_patient_info"])
     drug = orchestrator.parse_drug_info(state["raw_drug_info"])
@@ -84,9 +84,9 @@ def test_tool_clis() -> None:
 
 def test_stage2_refactor_endtoend() -> None:
     print("== end-to-end: PatientFeatures drives Stage 2 attribution ==")
-    from pertox_agent.graph import build_graph
+    from pertox_agent.workflow.graph import build_graph
 
-    final_state = build_graph().invoke(build_demo_state())
+    final_state = build_graph().invoke(build_warfarin_state())
 
     check("patient_features" in final_state, "patient_features present in final state")
     payload = final_state["final_output"]["json"]["payload"]

@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from typing import Any, Dict
 
 from pertox_agent.agents.knowledge_retrieval_agent import KnowledgeRetrievalAgent
 from pertox_agent.agents.safety_verifier_agent import SafetyVerifierAgent
 from pertox_agent.agents.toxicity_orchestrator_agent import ToxicityOrchestratorAgent
-from pertox_agent.formatting import format_to_json
-from pertox_agent.state import AgentState
+from pertox_agent.reporting.formatter import format_to_json
+from pertox_agent.workflow.state import AgentState
 from pertox_agent.tools.clinical_input.drug_parser import normalize_drug_input
 from pertox_agent.tools.patient_context.standardizer import PatientProfileStandardizer
 
@@ -24,9 +25,27 @@ def _trace(state: AgentState, message: str) -> None:
     state["trace"].append(message)
 
 
+def _merge_drug_exposure(raw_drug_info: Any, raw_patient_info: Any) -> Any:
+    if not isinstance(raw_drug_info, Mapping) or not isinstance(raw_patient_info, Mapping):
+        return raw_drug_info
+    exposure = raw_patient_info.get("exposure")
+    if not isinstance(exposure, Mapping):
+        return raw_drug_info
+
+    merged = dict(raw_drug_info)
+    for key in ("dose", "route", "frequency", "form"):
+        if merged.get(key) not in (None, "", "unspecified"):
+            continue
+        value = exposure.get(key)
+        if value not in (None, ""):
+            merged[key] = value
+    return merged
+
+
 def orchestrator_parse_input(state: AgentState) -> AgentState:
-    patient = state.get("patient_info") or toxicity_orchestrator_agent.parse_patient_info(state.get("raw_patient_info", {}))
-    raw_drug_info = state.get("raw_drug_info", {})
+    raw_patient_info = state.get("raw_patient_info", {})
+    patient = state.get("patient_info") or toxicity_orchestrator_agent.parse_patient_info(raw_patient_info)
+    raw_drug_info = _merge_drug_exposure(state.get("raw_drug_info", {}), raw_patient_info)
     drug = state.get("drug_info") or toxicity_orchestrator_agent.parse_drug_info(raw_drug_info)
     state["normalized_drug_input"] = normalize_drug_input(
         {

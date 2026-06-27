@@ -26,8 +26,13 @@ __pycache__/
 *.part
 .ipynb_checkpoints/
 *.egg-info/
+.pytest_cache/
+pytest-cache-files-*/
 .venv/
 venv/
 .env
 !.env.example
+
+# LangGraph dev runtime cache
+.langgraph_api/
 data/

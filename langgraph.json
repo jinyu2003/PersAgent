@@ -1,7 +1,7 @@
 {
   "dependencies": ["."],
   "graphs": {
-    "persagent": "./studio_graph.py:graph"
+    "pertox_agent": "pertox_agent.workflow.graph:graph"
   },
   "env": ".env"
 }
